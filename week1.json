@@ -1,0 +1,55 @@
+{
+      "Monday": 
+      {
+        "Breakfast": "IDLI  SAMBAR, COCONUT CHUTNEY, TEA",
+        "Lunch": "RICE, ROTI, DALMA, TOMATO KHAJOR KHATA, SRIRAM PAPAD BIG, ALOO BHARTA",
+        "Snacks": "ALUCHOP, TOMATO KETCHUP, COFFEE",
+        "Dinner": "RICE, ROTI, DAL, ALOO CAULIFLOWER MASALA, MIX BHAJA, GULAB JAMUN"
+      },
+
+
+      "Tuesday": 
+      {
+        "Breakfast": "BADA, GHUGANI CHUTNEY, TEA",
+        "Lunch": "RICE, ROTI, DAL, EGG CURRY/SOYABIN ALOO CURRY, DAHI SALAD, SRIRAM PAPAD BIG",
+        "Snacks": "SOLA ONION BHAJI, COFFEE",
+        "Dinner": "HYDRABADI CHICKEN DUM BIRIYANI WITH RAITA, BOIL EGG/ MIX VEG DUM BIRYANI WITH RAITA, PANEER CURRY RASAGOLA"
+      },
+      "Wednesday": 
+      {
+        "Breakfast": "FRUIT BREAD, JAM, BANANA/EGG, ALUCHOP, TEA",
+        "Lunch": "RICE, ROTI, DAL, MUSTARD FISH/ MUSHROOM & PEAS MASALA, SALAD, SRIRAM PAPAD BIG",
+        "Snacks": "VADA PAV, PODINA & DAHI CHUTNEY, COFFEE",
+        "Dinner": "RICE, ROTI, DAL, CHICKEN HOME STYLE/ PALAK PANEER, SEASONAL BHAJA, SALAD"
+      },
+      "Thursday":
+       {
+        "Breakfast": "CHAKULI, BUTADALI ALOO KAKHAROO, COFFEE",
+        "Lunch": "RICE, ROTI, DAL,POTAL KUMRA, SEASONAL BHAJA, SALAD",
+        "Snacks": "SAMOSA & DAHI PUDINA CHUTNEY, TEA",
+        "Dinner": "RICE, ROTI, DAL, VEG TADKA/ EGG TADKA, SRIRAM PAPAD, FRUIT CUSTARD"
+      },
+      "Friday": 
+      {
+        "Breakfast": "SANDWICH , TOMATO KETCHUP, BANANA/EGG, ALUCHOP, TEA",
+        "Lunch": "RICE, ROTI, DAL, FISH KALIA /ALOO CAULIFLOWER CURRY, DAHI SALAD, SEASONAL BHAJA",
+        "Snacks": "PAV BHAJI , COFFEE",
+        "Dinner": "RICE, ROTI, DAL, HYDERABADI CHICKEN/PANEER BUTTER MASALA, RICE KHEER, SRIRAM PAPAD BIG"
+      },
+      "Saturday": 
+      {
+        "Breakfast": "PALAK PURI, ALOO KASSA , COFFEE",
+        "Lunch": "RICE, ROTI, DAL, MANDIR BESARA, CABBAGE BEANS CURRY,AMBULA RAI",
+        "Snacks": "BADA  WITH ALOO KASA, TEA",
+        "Dinner": "RICE, ROTI, DAL,EGG ALOO MASALA/SOYABEAN, CHIPS, SALAD"
+      },
+      "Sunday": 
+      {
+        "Breakfast": "MASALA DOSA , BADAM CHUTNEY, COFFEE",
+        "Lunch": "VEG DUM BIRYANI, RAITA, CHICKEN/PANEER CURRY,SRIRAM PAPAD BIG",
+        "Snacks": "PAMPDI CHAT, ONION, SEU, DAHI PUDINA CHUTNEY, TEA",
+        "Dinner": "RICE, ROTI, DAL,CHHOLE CURRY/EGG CURRY, FINGER CHIPS ICE-CREAM"
+      }
+ }
+
+  
