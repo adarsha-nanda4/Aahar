@@ -263,7 +263,8 @@ align-items: end;
 
 }
 #dinner-food{
-  background-color:rgb(128, 196, 233)
+  background-color:rgb(128, 196, 233);
+  opacity: 0.7;
 }
 .main-cours-img{
   width: 50%;
