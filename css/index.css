@@ -81,16 +81,14 @@
     z-index: 1;
     pointer-events: none;
     list-style: none;
-    background-color: rgba(128, 128, 128, 0.78);
+    background-color: rgb(128, 128, 128);
   }
   
-  .menu .item:hover .submenu {
+  .menu .item .submenu.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
-    border-top: transparent;
-    /* color: white; */
   }
   
   .menu .item:hover .link {
@@ -264,7 +262,6 @@ align-items: end;
 }
 #dinner-food{
   background-color:rgb(128, 196, 233);
-  opacity: 0.7;
 }
 .main-cours-img{
   width: 50%;
