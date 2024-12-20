@@ -1,0 +1,17 @@
+{
+  "name": "Menu",
+  "short_name": "Menu",
+  "theme_color": "#5DB996",
+  "background_color": "#5DB996",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "welcome.html",
+  "description": "Blog and Resume for Christine Dodrill",
+  "orientation": "any",
+  "icons": [
+      {
+          "src": "/data/logo.png",
+          "sizes": "1024x1024"
+      }
+  ]
+}
