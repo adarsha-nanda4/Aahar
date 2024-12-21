@@ -168,10 +168,14 @@
     font-weight: 700;
     font-family:'Times New Roman', Times, serif;
   }
-  #Today{
-    font-size: 12px;
+
+  #Today , .Today{
+    font-size: 20px;
 color: gray;
+display: inline-block;
+gap: 5px;
   }
+  
  
   .breakfast-textline{
     width: 100%;

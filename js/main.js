@@ -1,16 +1,16 @@
-let BH = document.getElementById("BH");
-let LH = document.getElementById("LH");
+// let BH = document.getElementById("BH");
+// let LH = document.getElementById("LH");
 
 
-LH.addEventListener("click",function(){
-localStorage.setItem("Hostel","LH")
-window.location.reload();
-})
+// LH.addEventListener("click",function(){
+// localStorage.setItem("Hostel","LH")
+// window.location.reload();
+// })
 
-BH.addEventListener("click",function(){
-    localStorage.setItem("Hostel","BH")
-    window.location.reload();
-    })
+// BH.addEventListener("click",function(){
+//     localStorage.setItem("Hostel","BH")
+//     window.location.reload();
+//     })
 
 
     // Select all items that have a submenu
