@@ -45,3 +45,6 @@ if (!htl) {
   // Redirect to BHpage.html if selected and not already there
   window.location = "BHpage.html";
 }
+
+
+
