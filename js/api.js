@@ -13,7 +13,7 @@ const dayName = days[myDate.getDay()];
 
 // Function to get the current week number dynamically (resets after 4 weeks)
 function getCurrentWeek() {
-  const startDate = new Date("2024-11-24"); // Start date
+  const startDate = new Date("2024-11-25"); // Start date
   const currentDate = new Date(); // Today's date
   
   // Calculate days since the start date
