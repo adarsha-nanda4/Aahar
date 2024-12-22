@@ -1,9 +1,3 @@
-let brekitem = document.getElementById("brekitem");
-let lunchitem = document.getElementById("lunchitem");
-let snaksitem = document.getElementById("snaksitem");
-let dinneritem = document.getElementById("dinneritem");
-let Today = document.getElementById("Today");
-
 // Days of the week
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -13,22 +7,28 @@ const dayName = days[myDate.getDay()];
 
 // Function to get the current week number dynamically (resets after 4 weeks)
 function getCurrentWeek() {
-  const startDate = new Date("2024-12-16"); // Start date
-  const currentDate = new Date(); // Today's date
+  const startDate = new Date("2024-12-16T00:00:00Z"); // Start date in UTC
+  const currentDate = new Date(); // Current date
+  
+  // Convert both to UTC for accurate day difference
+  const utcStartDate = Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+  const utcCurrentDate = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
   
   // Calculate days since the start date
-  const daysSinceStart = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24));
-
+  const daysSinceStart = Math.floor((utcCurrentDate - utcStartDate) / (1000 * 60 * 60 * 24));
+  console.log(`Days since start: ${daysSinceStart}`);
+  
   // Calculate the week number with reset after 4 weeks
-  const currentWeek = ((Math.ceil((daysSinceStart + 1) / 7) - 1) % 4) + 1;
-
+  const currentWeek = ((Math.ceil((daysSinceStart + 1) / 7) - 1) % 4 + 4) % 4 + 1;
+  
   return currentWeek; // Week number between 1 and 4
-
 }
 
 // Dynamically determine the JSON file for the current week
 const currentWeek = getCurrentWeek();
-const jsonFileName = `LHweek${currentWeek}.json`; // e.g., week1.json, week2.json
+const jsonFileName = `week${currentWeek}.json`; // e.g., week1.json, week2.json, etc.
+console.log(`Current Week: ${currentWeek}`);
+console.log(`JSON File: ${jsonFileName}`);
 
 // Fetch today's meals from the corresponding JSON file
 fetch(jsonFileName)
@@ -40,27 +40,24 @@ fetch(jsonFileName)
   })
   .then(data => {
     // Get today's food data
-    let todymenu = data[dayName];
-    console.log(todymenu.Breakfast)
-    console.log(todymenu.Snacks)
-    console.log(todymenu.Lunch)
-    console.log(todymenu.Dinner)
+    const todymenu = data[dayName];
+    console.log(`Today's Menu:`, todymenu);
 
     if (todymenu) {
       // Populate food items into the HTML
-      brekitem.innerHTML = todymenu.Breakfast || "No data";
-      snaksitem.innerHTML = todymenu.Snacks || "No data";
-      lunchitem.innerHTML = todymenu.Lunch || "No data";
-      dinneritem.innerHTML = todymenu.Dinner || "No data";
+      document.getElementById("brekitem").innerHTML = todymenu.Breakfast || "No data";
+      document.getElementById("snaksitem").innerHTML = todymenu.Snacks || "No data";
+      document.getElementById("lunchitem").innerHTML = todymenu.Lunch || "No data";
+      document.getElementById("dinneritem").innerHTML = todymenu.Dinner || "No data";
     } else {
       // If no data for the current day
-      brekitem.innerHTML = lunchitem.innerHTML = snaksitem.innerHTML = dinneritem.innerHTML = "No meal data available.";
+      document.getElementById("brekitem").innerHTML = "No meal data available.";
+      document.getElementById("snaksitem").innerHTML = "No meal data available.";
+      document.getElementById("lunchitem").innerHTML = "No meal data available.";
+      document.getElementById("dinneritem").innerHTML = "No meal data available.";
     }
   })
 
 
 // Display today's day and current week
-Today.innerHTML = ` <strong>${dayName} Week-${currentWeek}</strong>`;
-
-
-console.log(currentWeek)
+document.getElementById("Today").innerHTML = `<strong>${dayName} - Week ${currentWeek}</strong>`;
