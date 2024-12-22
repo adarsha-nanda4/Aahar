@@ -1,0 +1,55 @@
+{
+    "Week 3": 
+    {
+      "Monday": 
+      {
+        "Breakfast": "Poori, Aloo Kasa, Tea",
+        "Lunch": "Rice, Roti, Dal, Tomato Khata, Vegetable Makhani, Jeera Aloo",
+        "Snacks": "Misal Pav, Tea",
+        "Dinner": "Rice, Roti, Dal Fry, Aloo-Chana Curry, Aloo Beans Bhaja, Rasgulla"
+      },
+      "Tuesday": 
+      {
+        "Breakfast": "Bread, Aloo Chop Big, Egg, Jam, Banana, Coffee",
+        "Lunch": "Rice, Roti, Dal Fry, Malai Kofta, Prawn-Aloo Curry, Cabbage Mattar Bhaja, Dahi Salad",
+        "Snacks": "Papadi Chaat, Ghuguni, Tea",
+        "Dinner": "Rice, Roti, Dal Fry, Manchurian, Potol Aloo Bhaja, Fryums, Gulab-Jamun"
+      },
+      "Wednesday": 
+      {
+        "Breakfast": "Idli, Coconut Chutney, Veggie Sambar, Coffee",
+        "Lunch": "Rice, Roti, Dal Fry, Chicken Home Style Curry, Paneer Punjabi, Dahi Bhindi, Papad",
+        "Snacks": "Sambar Bara, Onion Cut, Sev, Tea",
+        "Dinner": "Rice, Roti, Dal, Pindi Chhole, Egg Masala, Mix Veg Bhaja, Sirka Onion"
+      },
+      "Thursday": 
+      {
+        "Breakfast": "Bara, Ghuguni, Tea",
+        "Lunch": "Rice, Roti, Dal Fry, Kadhi-Pakoda, Aloo-Tomato Bharta, Fryums, Salad",
+        "Snacks": "Onion-Cabbage Cutlet, Ghuguni, Coffee",
+        "Dinner": "Rice, Roti, Dal Fry, Cauliflower-Matar Aloo Curry, Aloo Jhudanga Bhaja, Frooti"
+      },
+      "Friday": 
+      {
+        "Breakfast": "Uttapam, Chutney, Ghuguni, Coffee",
+        "Lunch": "Rice, Roti, Dal, Palak Paneer, Beans-Aloo Bhaja, Chicken Butter Masala, Salad, Papad",
+        "Snacks": "Veg Chowmin, Tomato Sauce, Tea",
+        "Dinner": "Rice, Roti, Dal, Rajma Masala, Egg Boiled Masala, Seasonal Bhaja,Rasgulla"
+      },
+      "Saturday": 
+      {
+        "Breakfast": "Upma, Ghuguni, Tea",
+        "Lunch": "Rice, Roti, Dal Fry, Fish-Aloo Besara, Mushroom Besara, Cauliflower Bhaja, Fryums",
+        "Snacks": "Samosa Big with Imli Chutney, Coffee",
+        "Dinner": "Rice, Roti, Dal Fry, Chicken-Kadhai, Paneer Kadhai, Cabbage Mattar Masala, Papad"
+      },
+      "Sunday": 
+      {
+        "Breakfast": "Poori, Aloo Dum, Coffee",
+        "Lunch": "Rice, Roti, Dal Fry, Egg Dopyaza, Soyabean Dopyaza, Vegetable Chips, Papad",
+        "Snacks": "Bourbon Biscuit, Tea",
+        "Dinner": "Vegetable Pulao, Roti, Dal Fry, Chicken Korma, Paneer Makhani, Honey Chilli Potato, Ice-Cream"
+      }
+    }
+}
+  
