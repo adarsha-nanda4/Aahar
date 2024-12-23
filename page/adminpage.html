@@ -11,43 +11,78 @@
 <body>
     <!-- loginpage -->
 <section id="loginpage">
+
+
 <!-- navbar -->
  <section class="navbar-box">
-    <div class="back-btn-box">
-        <div id="backicon"><a href="/index.html"><i class='bx bx-left-arrow-alt'></i></a></div>
-    </div>
-    <div class="navbar-name-box">
-        <div class="loging-text"><div>Login</div></div>
-    </div>
+    <div class="back-btn-box"> 
+    <div id="backicon"><a href="/index.html"><i class='bx bx-left-arrow-alt'></i></a></div></div>
+    <div class="navbar-name-box"><div class="loging-text"><div>Login</div></div></div>
  </section>
+
  <!-- animation -->
-  <section class="animation-box">
-<img src="/data/login.jpg" alt="" width="300px">
-  </section>
+<section class="animation-box">
+  <img src="/data/login.jpg" alt="" width="300px">
+</section>
+
+ <!-- forme Text -->
 <section class="addline">
     <div class="line1">Enter your password</div>
     <div class="line2">Type  <b>&</b> continue</div>
 </section>
 
   <!-- form -->
-  <section id="otpPage">
-    <div class="otp-enter-box">
-       <div class="otp-inputs">
+<section id="otpPage">
+
+<div class="otp-enter-box">
+<div class="otp-inputs">
            <input  type="password" maxlength="1" required >
            <input  type="password" maxlength="1"  required>
            <input  type="password" maxlength="1"   required>
-           <input   type="password" maxlength="1"  required >
-        
-       </div>
-       <p id="alertMsg"></p>
-        </div>
- 
-       <div class="buttons">
-           <button id="backButton">Back</button>
-           <button id="verifyButton">Verify</button>
-       </div>
+           <input   type="password" maxlength="1"  required > 
+</div>
+<p id="alertMsg"></p></div>
+
+<div class="buttons">
+    <button id="backButton">Back</button>
+    <button id="verifyButton">Verify</button>
+ </div>
+
  </section>
 </section>
+
+<!-- ADminnpage -->
+ <section id="adminpage">
+<!-- navbar -->
+<section class="navbar-box">
+    <div class="back-btn-box"> 
+    <div id="backicon"><a href="/index.html"><i class='bx bx-left-arrow-alt'></i></a></div></div>
+    <div class="navbar-name-box"><div class="loging-text"><div>Admin</div></div></div>
+ </section>
+
+  <!-- animation -->
+<section class="animation-box">
+    <img src="/data/uplodeImg.jpg" alt="" width="300px">
+</section>
+
+
+ <!-- img uplode -->
+<section class="file-uplode-box">
+ 
+ <div class="upload-container">
+    <h2>Upload Your File</h2>
+    <div class="drag-area" id="dragArea">
+      <p>Drag & Drop your file here</p>
+      <input type="file" id="fileInput" class="file-input" multiple>
+      <button class="upload-btn" id="fileButton">Choose File</button>
+    </div>
+    <div class="file-details" id="fileDetails">
+    </div>
+</div>
+
+</section>
+ </section>
+
 
 <script src="/js/admin.js">
 
