@@ -29,7 +29,7 @@ inputs.forEach((input, index) => {
   });
 
 
-  adminpage.style.display = "none";
+  // adminpage.style.display = "none";
 
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Backspace' && !input.value && index > 0) {
