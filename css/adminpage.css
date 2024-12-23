@@ -8,6 +8,7 @@
     width: 100%;
     height: 100vh;
     /* background-color: aqua; */
+    position: fixed;
 
 }
 .navbar-box{
@@ -165,6 +166,7 @@
   #adminpage{
     width: 100%;
     height: 100vh;
+    position: fixed;
   
 
 }
