@@ -28,8 +28,8 @@ inputs.forEach((input, index) => {
     }
   });
 
-  // Hide admin page initially
-  loginPage.style.display = "none";
+
+  adminPage.style.display = "none";
 
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Backspace' && !input.value && index > 0) {
