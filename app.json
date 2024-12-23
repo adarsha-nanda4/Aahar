@@ -1,8 +1,8 @@
 {
   "name": "Menu",
   "short_name": "Menu",
-  "theme_color": "#5DB996",
-  "background_color": "#5DB996",
+  "theme_color": "#edf5f4",
+  "background_color": "#edf5f4",
   "display": "standalone",
   "scope": "/",
   "start_url": "index.html",
