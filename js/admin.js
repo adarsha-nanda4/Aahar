@@ -1,4 +1,4 @@
-const adminPage = document.getElementById("adminPage");
+const adminpage = document.getElementById("adminpage");
 const inputs = document.querySelectorAll('.otp-inputs input');
 const verifyButton = document.getElementById('verifyButton');
 const backButton = document.getElementById("backButton");
@@ -29,7 +29,7 @@ inputs.forEach((input, index) => {
   });
 
 
-  adminPage.style.display = "none";
+  adminpage.style.display = "none";
 
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Backspace' && !input.value && index > 0) {
