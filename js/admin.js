@@ -54,7 +54,7 @@ verifyButton.addEventListener('click', () => {
     // Transition to the admin page after 2 seconds
     setTimeout(() => {
       loginPage.style.display = "none";
-      adminPage.style.display = "flex";
+      adminpage.style.display = "flex";
     }, 2000);
   } else {
     alertMsg.textContent = 'Incorrect passcode. Please try again.';
