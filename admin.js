@@ -6,7 +6,19 @@ const alertMsg = document.getElementById('alertMsg');
 const loginPage = document.getElementById("loginpage");
 
 // Variable to store the correct passcode fetched from JSON
-let correctPasscode = '4450';
+let correctPasscode = '';
+fetch('weekpass.json') 
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json();
+})
+.then(data => {
+    // Extract integer values
+    correctPasscode = data.id; // Integer value
+})
+
 
 // Add event listeners to each input field for auto-navigation
 inputs.forEach((input, index) => {
@@ -66,42 +78,3 @@ backButton.addEventListener("click", function () {
 
 
 
-const dragArea = document.getElementById('dragArea');
-const fileInput = document.getElementById('fileInput');
-const fileButton = document.getElementById('fileButton');
-const fileDetails = document.getElementById('fileDetails');
-
-// Open file dialog when button is clicked
-fileButton.addEventListener('click', () => fileInput.click());
-
-// Handle file selection via input
-fileInput.addEventListener('change', handleFiles);
-
-// Drag and drop functionality
-dragArea.addEventListener('dragover', (e) => {
-  e.preventDefault();
-  dragArea.style.backgroundColor = '#f9f9f9';
-});
-
-dragArea.addEventListener('dragleave', () => {
-  dragArea.style.backgroundColor = 'transparent';
-});
-
-dragArea.addEventListener('drop', (e) => {
-  e.preventDefault();
-  dragArea.style.backgroundColor = 'transparent';
-  handleFiles(e.dataTransfer.files);
-});
-
-// Display selected files
-function handleFiles(files) {
-  if (!files.length) {
-    files = fileInput.files;
-  }
-
-  fileDetails.innerHTML = '<h3>Uploaded Files:</h3><ul>';
-  for (let file of files) {
-    fileDetails.innerHTML += `<li><strong>${file.name}</strong> - ${(file.size / 1024).toFixed(2)} KB</li>`;
-  }
-  fileDetails.innerHTML += '</ul>';
-}
