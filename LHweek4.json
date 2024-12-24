@@ -1,0 +1,55 @@
+{
+    "Week 4": 
+    {
+      "Monday": 
+      {
+        "Breakfast": "Idli, Sambar, Coconut Chutney, Tea",
+        "Lunch": "Rice, Roti, Dalma, Aloo Tomato Bharta, Tomato Khajur Khata, Papad",
+        "Snacks": "Corn Chaat, Tea",
+        "Dinner": "Rice, Methi Poori, Dal Fry, Chana Masala Dry, Cauliflower Bhaja, Rasagulla"
+      },
+      "Tuesday": 
+      {
+        "Breakfast": "Semiya Upma, Green Chutney, Ghuguni, Tea",
+        "Lunch": "Rice, Roti, Dal, Fish Besara, Mushroom Besara, Kala Chana Onion Bhaja, Dahi Baigan",
+        "Snacks": "Gupchup, Pudina Paani, Aloo Chakta",
+        "Dinner": "Rice, Roti, Dal, Chicken Kassa, Matar Paneer, Cabbage Matar Bhaja"
+      },
+      "Wednesday": 
+      {
+        "Breakfast": "Bread, Aloo Chop Big, Egg, Jam, Banana, Coffee",
+        "Lunch": "Rice, Roti, Dal, Egg Masala, Gobi Manchurian, Mix Veg Chips, Badichura",
+        "Snacks": "Vada Pav, Fried Chilli, Masala, Onion",
+        "Dinner": "Rice, Roti, Dal, Egg Masala, Soya Aloo Masala, Cabbage Aloo Matar Bhaja, Papad, Kala Jamun/Gulab Jamun"
+      },
+      "Thursday": 
+      {
+        "Breakfast": "Sandwich, Sauce, Green Chutney, Tea",
+        "Lunch": "Rice, Roti, Dal, Veg Navratna Korma, Aloo Gobi Masala, Curd Packet/Plain Curd",
+        "Snacks": "Dahi Vada, Aloo Dum, Coffee",
+        "Dinner": "Rice, Roti, Dal, Mix Ghanta/Santula, Mix Veg Chips, Smoothie"
+      },
+      "Friday": 
+      {
+        "Breakfast": "Methi Poori, Aloo Kassa, Coffee",
+        "Lunch": "Rice, Roti, Dal, Chungudi Ghanta, Veg Ghanta, Drumstick Aloo Besara, Dahi Salad",
+        "Snacks": "Pasta with Veggies, Tea",
+        "Dinner": "Rice, Roti, Dal, Chilli Mushroom, Chilli Chicken, Beans Bhaja, Salad, Papad"
+      },
+      "Saturday": 
+      {
+        "Breakfast": "Vada, Ghuguni, Coconut Chutney, Tea",
+        "Lunch": "Rice, Roti, Dal, Chicken Aloo Curry, Paneer Butter Masala, Mix Veg Chips, Salad",
+        "Snacks": "Samosa Chaat, Ghuguni, Imli Chutney, Onion, Coffee",
+        "Dinner": "Rice, Roti, Dal, Fish Tawa Fry, Chilli Gobi Dry, Aloo Jhudanga Bhaja, Fruit Custard"
+      },
+      "Sunday": 
+      {
+        "Breakfast": "Masala Dosa, Coconut Chutney, Sambar, Coffee",
+        "Lunch": "Rice, Roti, Dal, Paneer Butter Masala, Masala Potala Bhaja, Papad",
+        "Snacks": "Moong Dal Packet/Soyastick Packet, Tea",
+        "Dinner": "Jeera Rice, Poori, Dal Fry, Chicken Kasa, Paneer Butter Masala, Dahi Vada, Fryums,Ice Cream"
+      }
+    }
+}
+  

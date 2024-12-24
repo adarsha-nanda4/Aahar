@@ -8,18 +8,6 @@ const loginPage = document.getElementById("loginpage");
 // Variable to store the correct passcode fetched from JSON
 let correctPasscode = '4450';
 
-// Fetch the passcode from the JSON file
-fetch('./weekpass.json')
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then((data) => {
-    correctPasscode = data.idpass.pass; // Extract the passcode
-    console.log('Passcode fetched:', correctPasscode);
-  })
 // Add event listeners to each input field for auto-navigation
 inputs.forEach((input, index) => {
   input.addEventListener('input', () => {
