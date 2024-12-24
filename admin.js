@@ -6,7 +6,7 @@ const alertMsg = document.getElementById('alertMsg');
 const loginPage = document.getElementById("loginpage");
 
 // Variable to store the correct passcode fetched from JSON
-let correctPasscode = '';
+let correctPasscode = '4450';
 fetch('weekpass.json') 
 .then(response => {
     if (!response.ok) {
@@ -15,8 +15,9 @@ fetch('weekpass.json')
     return response.json();
 })
 .then(data => {
-    // Extract integer values
-    correctPasscode = data.id; // Integer value
+    // // Extract integer valuesx
+    // correctPasscode = data.id; // Integer value
+    // console.log(correctPasscode)
 })
 
 

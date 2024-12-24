@@ -26,7 +26,7 @@ function getCurrentWeek() {
 
 // Dynamically determine the JSON file for the current week
 const currentWeek = getCurrentWeek();
-const jsonFileName = `week${currentWeek}.json`; // e.g., week1.json, week2.json, etc.
+const jsonFileName = `LHweek${currentWeek}.json`; // e.g., week1.json, week2.json, etc.
 console.log(`Current Week: ${currentWeek}`);
 console.log(`JSON File: ${jsonFileName}`);
 
