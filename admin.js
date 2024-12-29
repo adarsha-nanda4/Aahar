@@ -72,7 +72,4 @@ backButton.addEventListener("click", () => {
   inputs.forEach((input) => (input.value = ''));
   inputs[0].focus();
 
-  // Optionally, you can transition back to the login page
-  adminpage.style.display = "none";
-  loginPage.style.display = "flex";
 });
