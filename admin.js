@@ -6,9 +6,9 @@ const backButton = document.getElementById("backButton");
 const alertMsg = document.getElementById('alertMsg');
 const loginPage = document.getElementById("loginpage");
 
-let Passcode; // Variable to store the correct passcode fetched from JSON
+let Passcode;
 
-
+adminpage.style.display="none"
 fetch('weekpass.json')
   .then(response => {
     if (!response.ok) {
@@ -73,3 +73,66 @@ backButton.addEventListener("click", () => {
   inputs[0].focus();
 
 });
+
+
+
+// script.js
+
+// Get references to the DOM elements
+const imageInput = document.getElementById('image-input');
+const previewImg = document.getElementById('preview-img');
+const previewText = document.getElementById('preview-text');
+const uploadBtn = document.getElementById('upload-btn');
+const cancelBtn = document.getElementById('cancel-btn');
+
+// Handle the file input change event
+imageInput.addEventListener('change', function () {
+    const file = imageInput.files[0];
+
+    if (file) {
+        // Check if the file is an image
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            // Display the image preview
+            previewImg.src = e.target.result;
+            previewImg.style.display = 'block';
+            previewText.style.display = 'none';
+
+            // Enable the upload button
+            uploadBtn.disabled = false;
+
+            // Show the cancel button
+            cancelBtn.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    } else {
+        // Reset if no file is selected
+        previewImg.style.display = 'none';
+        previewText.style.display = 'block';
+        uploadBtn.disabled = true;
+        cancelBtn.style.display = 'none';
+    }
+});
+
+// Handle the cancel button click event
+cancelBtn.addEventListener('click', function () {
+    // Clear the file input
+    imageInput.value = '';
+    
+    // Hide the preview image and reset the text
+    previewImg.style.display = 'none';
+    previewText.style.display = 'block';
+    
+    // Disable the upload button
+    uploadBtn.disabled = true;
+    
+    // Hide the cancel button
+    cancelBtn.style.display = 'none';
+});
+
+// Handle the upload button click event
+uploadBtn.addEventListener('click', function () {
+    alert('Image uploaded successfully!');
+    // You can integrate real upload functionality here
+});
+
