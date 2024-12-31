@@ -224,14 +224,7 @@ a{
   align-items: center;
   justify-content: center;
 }
-.uplode-box{
-  width: 100%;
-flex-direction: column;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
+
 
 /* styles.css */
 
@@ -247,6 +240,16 @@ body {
   min-height: 100vh;
 }
 
+.uplode-box{
+  width: 100%;
+flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  overflow: hidden;
+  padding: 1px 5px;
+}
 /* Main container */
 
 
