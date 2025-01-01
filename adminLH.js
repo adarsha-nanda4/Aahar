@@ -18,7 +18,7 @@ fetch('weekpass.json')
   })
   .then(data => {
 
-    Passcode = String(data.id).trim();
+    Passcode = String(data.pass).trim();
 
     verifyButton.addEventListener('click', () => {
       let enteredPasscode = '';
