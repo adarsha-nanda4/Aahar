@@ -6,9 +6,7 @@
   <title>Image Upload</title>
 </head>
 <body>
-  <h1>Image U
-    
-  </h1>
+  <h1>Image Upload</h1>
 
   <form id="uploadForm">
     <label for="imageInput">Select an image to upload:</label>
@@ -35,18 +33,24 @@
       formData.append('img', file); // Add the file to FormData with the name 'img'
 
       try {
+        document.getElementById('responseMessage').textContent = 'Uploading...';
+
         const response = await fetch('https://aahar-bckd.vercel.app/api/bhp/', {
           method: 'POST',
           body: formData, // Send the FormData object
         });
 
+        const textResponse = await response.text(); // Get raw text response
+        console.log('Raw Response:', textResponse);
+
         if (response.ok) {
-          const result = await response.json();
+          const result = JSON.parse(textResponse); // Parse JSON manually
           document.getElementById('responseMessage').textContent = 
             'Upload successful! Response: ' + JSON.stringify(result);
+          document.getElementById('uploadForm').reset();
         } else {
           document.getElementById('responseMessage').textContent = 
-            'Upload failed: ' + response.statusText;
+            `Upload failed (${response.status}): ${textResponse}`;
         }
       } catch (error) {
         document.getElementById('responseMessage').textContent = 
