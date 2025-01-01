@@ -1,63 +1,47 @@
-self.addEventListener("install", function(event) {
+self.addEventListener("install", function (event) {
   event.waitUntil(preLoad());
 });
 
-var preLoad = function() {
+const preLoad = function () {
   console.log("Installing web app");
-  return caches.open("offline").then(function(cache) {
-    console.log("caching index and important routes");
+  return caches.open("offline").then(function (cache) {
+    console.log("Caching offline page and resources");
     return cache.addAll(["/offline.html", "/offline.gif"]);
   });
 };
 
-self.addEventListener("fetch", function(event) {
+self.addEventListener("fetch", function (event) {
   event.respondWith(
-    checkResponse(event.request).catch(function() {
+    checkResponse(event.request).catch(function () {
       return returnFromCache(event.request);
     })
   );
-  event.waitUntil(
-    addToCache(event.request)
-  );
 });
 
-var checkResponse = function(request) {
-  return fetch(request).then(function(response) {
-    if (response.status === 404) {
-      return Promise.reject("Not found");
+const checkResponse = function (request) {
+  return fetch(request).then(function (response) {
+    if (!response || response.status !== 200 || response.type !== "basic") {
+      // Reject requests with invalid responses
+      return Promise.reject("Response not valid");
     }
+    // Cache the successful response
+    addToCache(request, response.clone());
     return response;
   });
 };
 
-var returnFromCache = function(request) {
-  return caches.open("offline").then(function(cache) {
-    return cache.match(request).then(function(matching) {
-      return matching || cache.match("/offline.html");
+const returnFromCache = function (request) {
+  return caches.open("offline").then(function (cache) {
+    return cache.match(request).then(function (matching) {
+      return (
+        matching || cache.match("/offline.html") // Fallback to offline page
+      );
     });
   });
 };
 
-var addToCache = function(request) {
-  return caches.open("offline").then(function(cache) {
-    return fetch(request).then(function(response) {
-      if (response.status === 200) {
-        cache.put(request, response.clone());
-      }
-      return response;
-    });
+const addToCache = function (request, response) {
+  return caches.open("offline").then(function (cache) {
+    cache.put(request, response); // Add the request-response pair to the cache
   });
 };
-
-
-
-
-  // var addToCache = function(request){
-  //   return caches.open("offline").then(function (cache) {
-  //     return fetch(request).then(function (response) {
-  //       console.log(response.url + " was cached");
-  //       return cache.put(request, response);
-  //     });
-  //   });
-  // };
-  
