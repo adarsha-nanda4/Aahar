@@ -5,13 +5,29 @@
   "background_color": "#edf5f4",
   "display": "standalone",
   "scope": "/",
-  "start_url": "index.html",
-  "description": "Blog and Resume for Christine Dodrill",
-  "orientation": "any",
+  "start_url": "/index.html", 
+  "description": "Menu and Features for the application",
+  "orientation": "portrait-primary",
   "icons": [
-      {
-          "src": "/data/logo.png",
-          "sizes": "1024x1024"
-      }
-  ]
+    {
+      "src": "/data/logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "/data/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/data/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["utility", "productivity", "education"],
+  "lang": "en",
+  "dir": "ltr"
 }

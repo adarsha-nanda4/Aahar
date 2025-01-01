@@ -1,4 +1,3 @@
-// Admin page logic
 const adminpage = document.getElementById("adminpage");
 const inputs = document.querySelectorAll('.otp-inputs input');
 const verifyButton = document.getElementById('verifyButton');
@@ -8,7 +7,10 @@ const loginPage = document.getElementById("loginpage");
 
 let Passcode;
 
+// Hide admin page initially
 adminpage.style.display = "none";
+
+// Fetch passcode from JSON file
 fetch('weekpass.json')
   .then(response => {
     if (!response.ok) {
@@ -31,7 +33,7 @@ fetch('weekpass.json')
 
         setTimeout(() => {
           loginPage.style.display = "none";
-          adminpage.style.display = "flex";
+          adminpage.style.display = "block";
         }, 2000);
       } else {
         alertMsg.textContent = 'Incorrect passcode. Please try again.';
@@ -43,10 +45,10 @@ fetch('weekpass.json')
     });
   })
   .catch(error => {
-    console.error('Fetch error:', error); // Log any errors in fetching the JSON
+    console.error('Fetch error:', error);
   });
 
-// Add event listeners to each input field for auto-navigation
+// OTP input field navigation
 inputs.forEach((input, index) => {
   input.addEventListener('input', () => {
     if (input.value && index < inputs.length - 1) {
@@ -61,10 +63,12 @@ inputs.forEach((input, index) => {
   });
 });
 
-// Add event listener to the back button
+// Go back to login page
 backButton.addEventListener("click", () => {
   inputs.forEach((input) => (input.value = ''));
   inputs[0].focus();
+  adminpage.style.display = "none";
+  loginPage.style.display = "block";
 });
 
 // Image upload logic
@@ -105,10 +109,8 @@ uploadBtn.addEventListener('click', function () {
     return;
   }
 
-
   const formData = new FormData();
   formData.append('image', file);
-
 
   fetch('https://aahar-bckd.vercel.app/api/bhp/', {
     method: 'POST',
@@ -131,8 +133,17 @@ uploadBtn.addEventListener('click', function () {
       uploadBtn.disabled = true;
       cancelBtn.style.display = 'none';
     })
-    // .catch(error => {
-    //   alert('Failed to upload the image. Please try again.');
-    //   console.error('Upload error:', error);
-    // });
+    .catch(error => {
+      alert('Failed to upload the image. Please try again.');
+      console.error('Upload error:', error);
+    });
+});
+
+// Handle the cancel button click event
+cancelBtn.addEventListener('click', function () {
+  imageInput.value = '';
+  previewImg.style.display = 'none';
+  previewText.style.display = 'block';
+  uploadBtn.disabled = true;
+  cancelBtn.style.display = 'none';
 });
