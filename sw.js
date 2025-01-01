@@ -38,16 +38,16 @@ var returnFromCache = function(request) {
   });
 };
 
-var addToCache = function(request) {
-  return caches.open("offline").then(function(cache) {
-    return fetch(request).then(function(response) {
-      if (response.status === 200) {
-        cache.put(request, response.clone());
-      }
-      return response;
-    });
-  });
-};
+// var addToCache = function(request) {
+//   return caches.open("offline").then(function(cache) {
+//     return fetch(request).then(function(response) {
+//       if (response.status === 200) {
+//         cache.put(request, response.clone());
+//       }
+//       return response;
+//     });
+//   });
+// };
 
 
 

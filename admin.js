@@ -1,4 +1,4 @@
-
+// Admin page logic
 const adminpage = document.getElementById("adminpage");
 const inputs = document.querySelectorAll('.otp-inputs input');
 const verifyButton = document.getElementById('verifyButton');
@@ -8,7 +8,7 @@ const loginPage = document.getElementById("loginpage");
 
 let Passcode;
 
-adminpage.style.display="none"
+adminpage.style.display = "none";
 fetch('weekpass.json')
   .then(response => {
     if (!response.ok) {
@@ -17,7 +17,6 @@ fetch('weekpass.json')
     return response.json();
   })
   .then(data => {
-
     Passcode = String(data.id).trim();
 
     verifyButton.addEventListener('click', () => {
@@ -25,12 +24,11 @@ fetch('weekpass.json')
       inputs.forEach((input) => {
         enteredPasscode += input.value;
       });
-      enteredPasscode = enteredPasscode.trim();  
+      enteredPasscode = enteredPasscode.trim();
       if (enteredPasscode === Passcode) {
         alertMsg.textContent = 'Passcode verified successfully!';
         alertMsg.style.color = 'green';
 
-    
         setTimeout(() => {
           loginPage.style.display = "none";
           adminpage.style.display = "flex";
@@ -38,7 +36,6 @@ fetch('weekpass.json')
       } else {
         alertMsg.textContent = 'Incorrect passcode. Please try again.';
         alertMsg.style.color = 'red';
-
 
         inputs.forEach((input) => (input.value = ''));
         inputs[0].focus();
@@ -51,14 +48,12 @@ fetch('weekpass.json')
 
 // Add event listeners to each input field for auto-navigation
 inputs.forEach((input, index) => {
-  // Move focus to the next input when typing
   input.addEventListener('input', () => {
     if (input.value && index < inputs.length - 1) {
       inputs[index + 1].focus();
     }
   });
 
-  // Move focus to the previous input when pressing backspace
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Backspace' && !input.value && index > 0) {
       inputs[index - 1].focus();
@@ -68,17 +63,11 @@ inputs.forEach((input, index) => {
 
 // Add event listener to the back button
 backButton.addEventListener("click", () => {
-  // Clear all input fields and reset focus to the first input
   inputs.forEach((input) => (input.value = ''));
   inputs[0].focus();
-
 });
 
-
-
-// script.js
-
-// Get references to the DOM elements
+// Image upload logic
 const imageInput = document.getElementById('image-input');
 const previewImg = document.getElementById('preview-img');
 const previewText = document.getElementById('preview-text');
@@ -87,52 +76,63 @@ const cancelBtn = document.getElementById('cancel-btn');
 
 // Handle the file input change event
 imageInput.addEventListener('change', function () {
-    const file = imageInput.files[0];
+  const file = imageInput.files[0];
 
-    if (file) {
-        // Check if the file is an image
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            // Display the image preview
-            previewImg.src = e.target.result;
-            previewImg.style.display = 'block';
-            previewText.style.display = 'none';
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      previewImg.src = e.target.result;
+      previewImg.style.display = 'block';
+      previewText.style.display = 'none';
 
-            // Enable the upload button
-            uploadBtn.disabled = false;
-
-            // Show the cancel button
-            cancelBtn.style.display = 'block';
-        };
-        reader.readAsDataURL(file);
-    } else {
-        // Reset if no file is selected
-        previewImg.style.display = 'none';
-        previewText.style.display = 'block';
-        uploadBtn.disabled = true;
-        cancelBtn.style.display = 'none';
-    }
-});
-
-// Handle the cancel button click event
-cancelBtn.addEventListener('click', function () {
-    // Clear the file input
-    imageInput.value = '';
-    
-    // Hide the preview image and reset the text
+      uploadBtn.disabled = false;
+      cancelBtn.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  } else {
     previewImg.style.display = 'none';
     previewText.style.display = 'block';
-    
-    // Disable the upload button
     uploadBtn.disabled = true;
-    
-    // Hide the cancel button
     cancelBtn.style.display = 'none';
+  }
 });
 
 // Handle the upload button click event
 uploadBtn.addEventListener('click', function () {
-    alert('Image uploaded successfully!');
-  
-});
+  const file = imageInput.files[0];
+  if (!file) {
+    alert('No image selected!');
+    return;
+  }
 
+
+  const formData = new FormData();
+  formData.append('image', file);
+
+
+  fetch('https://aahar-bckd.vercel.app/api/bhp/', {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      alert('Image uploaded successfully!');
+      console.log('Upload response:', data);
+
+      // Reset the UI
+      imageInput.value = '';
+      previewImg.style.display = 'none';
+      previewText.style.display = 'block';
+      uploadBtn.disabled = true;
+      cancelBtn.style.display = 'none';
+    })
+    // .catch(error => {
+    //   alert('Failed to upload the image. Please try again.');
+    //   console.error('Upload error:', error);
+    // });
+});
