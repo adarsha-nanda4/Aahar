@@ -3,95 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LH</title>
+    <title>BH Login</title>
     <link rel="stylesheet" href="/css/adminpage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- loginpage -->
-<section id="loginpage">
+    <!-- Login Page -->
+    <section id="loginpage">
+        <!-- Navbar -->
+        <section class="navbar-box">
+            <div class="back-btn-box">
+                <a href="/index.html" id="backicon"><i class='bx bx-left-arrow-alt'></i></a>
+            </div>
+            <div class="navbar-name-box">
+                <div class="loging-text">Login</div>
+            </div>
+        </section>
 
+        <!-- Animation -->
+        <section class="animation-box">
+            <img src="/data/login.jpg" alt="Login Animation" width="300px">
+        </section>
 
-<!-- navbar -->
- <section class="navbar-box">
-    <div class="back-btn-box"> 
-    <div id="backicon"><a href="/index.html"><i class='bx bx-left-arrow-alt'></i></a></div></div>
-    <div class="navbar-name-box"><div class="loging-text"><div>Login</div></div></div>
- </section>
+        <!-- Form Text -->
+        <section class="addline">
+            <div class="line1">LH</div>
+            <div class="line1">Enter your password</div>
+            <div class="line2">Type <b>&</b> continue</div>
+        </section>
 
- <!-- animation -->
-<section class="animation-box">
-  <img src="/data/login.jpg" alt="" width="300px">
-</section>
+        <!-- Form -->
+        <section id="otpPage">
+            <div class="otp-enter-box">
+                <div class="otp-inputs">
+                    <input type="password" maxlength="1" required>
+                    <input type="password" maxlength="1" required>
+                    <input type="password" maxlength="1" required>
+                    <input type="password" maxlength="1" required>
+                </div>
+                <p id="alertMsg"></p>
+            </div>
 
- <!-- forme Text -->
-<section class="addline">
-  <div class="line1">LH</div>
-    <div class="line1">Enter your password</div>
-    <div class="line2">Type  <b>&</b> continue</div>
-</section>
+            <div class="buttons">
+                <button id="backButton">Back</button>
+                <button id="verifyButton">Verify</button>
+            </div>
+        </section>
+    </section>
 
-  <!-- form -->
-<section id="otpPage">
+    <!-- Admin View -->
+    <section id="admin-view" style="display: none;">
+        <iframe src="https://menu-admin-gules.vercel.app/BH.html" allowfullscreen></iframe>
+    </section>
 
-<div class="otp-enter-box">
-<div class="otp-inputs">
-           <input  type="password" maxlength="1" required >
-           <input  type="password" maxlength="1"  required>
-           <input  type="password" maxlength="1"   required>
-           <input   type="password" maxlength="1"  required > 
-</div>
-<p id="alertMsg"></p></div>
-
-<div class="buttons">
-    <button id="backButton">Back</button>
-    <button id="verifyButton">Verify</button>
- </div>
-
- </section>
-</section>
-
-<!--------------------- ADminnpage------------------------ -->
- <section id="adminpage">
-
-
-<!-- navbar -->
-<section class="navbar-box2">
-
-  <div class="back-btn-box2"> 
-  <div id="backicon2"><a href="/index.html"><i class='bx bx-left-arrow-alt'></i></a></div></div>
-  <div class="navbar-name-box2"><div class="loging-text2"><div>Admin</div></div></div>
-
-</section>
-
-<!-- animation -->
-<section class="animation-box2">
-  <img src="/data/uplode.jpg" alt="" width="300px">
-</section>
-
-<!-- uplode-box -->
-<section class="uplode-box">
- <h1>Upload Your Image</h1>
-        <div class="upload-area">
-            <input type="file" id="image-input" accept="image/*">
-            <label for="image-input">Click to upload an image</label>
-        </div>
-        <div id="image-preview" class="image-preview">
-            <img id="preview-img" src="" alt="Image Preview" style="display:none;">
-            <p id="preview-text">No image selected yet</p>
-            <!-- Cancel button (cross icon) -->
-            <button id="cancel-btn" class="cancel-btn" style="display:none;">&times;</button>
-        </div>
-        <button id="upload-btn" class="upload-btn" disabled>Upload Image</button>
-    </div>
-</section>
-
-</section>
-
-
-<script src="/adminLH.js">
-
-</script>
+    <script src="/adminLH.js"></script>
 </body>
 </html>
