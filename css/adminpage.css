@@ -7,7 +7,6 @@
 #loginpage{
     width: 100%;
     height: 100vh;
-    /* background-color: aqua; */
     /* display: none; */
 
 }
@@ -42,6 +41,8 @@
   }
   a{
     color: black;
+    text-decoration: none;
+    
   }
   .loging-text{
     display: flex;
@@ -164,187 +165,17 @@
   /* Admin page */
 
 
-  #adminpage{
+  #admin-view{
     width: 100%;
-    height: 110vh;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-}
 
+  }
 
-.navbar-box2{
-  width: 100%;
-  height: 80px;
- display: flex;
- justify-content: start;
- align-items: center;
-}
-.back-btn-box2{
-  width: 25%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.navbar-name-box2{
-  width: 65%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#backicon2{
-  width: 20%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-}
-a{
-  color: black;
-}
-.loging-text2{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- font-weight: 600;
- padding-right: 50px;
-}
-
-.animation-box2{
-  width: 100%;
-  height: 300px;
-  /* background-color: aqua; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-/* styles.css */
-
-/* Resetting basic styles */
-
-/* Body and main container */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.uplode-box{
-  width: 100%;
-flex-direction: column;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  overflow: hidden;
-  padding: 1px 5px;
-}
-/* Main container */
-
-
-/* Heading */
-h1 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 1.5rem;
-}
-
-/* Upload area */
-.upload-area {
-  background: #f1f1f1;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  border: 1px solid black;
-  
-}
-
-.upload-area input[type="file"] {
-  display: none;
-}
-
-.upload-area label {
-  font-size: 16px;
-  color: #555;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.upload-area:hover {
-  background-color: #e1e1e1;
-}
-
-/* Image preview */
-.image-preview {
-  margin-bottom: 1.5rem;
-  text-align: center;
-  position: relative;
-}
-
-#preview-img {
-  max-width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-
-#preview-text {
-  color: #aaa;
-}
-
-/* Cancel button (cross icon) */
-.cancel-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.cancel-btn:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* Button */
-.upload-btn {
-  background-color: rgb(252,91,75);
-  color: #fff;
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-}
-
-.upload-btn:disabled {
-  background-color: rgb(252,91,75);
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-.upload-btn:hover:enabled {
-  opacity: 1;
-  background-color: rgb(249, 21, 0);
+  iframe {
+    width: 100%;
+    height: 98%;
+    border: none;
 }
