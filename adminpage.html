@@ -56,8 +56,30 @@
 
     <!-- Admin View -->
     <section id="admin-view" style="display: none;">
-        <iframe src="https://menu-admin-gules.vercel.app/BH.html" allowfullscreen></iframe>
+        <!-- <iframe src="https://menu-admin-gules.vercel.app/BH.html" allowfullscreen></iframe> -->
+        <iframe id="menuIframe" allowfullscreen style="width:100%; height:100%;"></iframe>
+
     </section>
+
+    <script>
+        fetch('weekpass.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Extract the URL from the JSON and set it as the iframe's src
+          const iframeUrl = data.bhlink; // Assuming 'bhlink' is the key in your JSON
+          const iframeElement = document.getElementById('menuIframe');
+          iframeElement.src = iframeUrl;
+        })
+        .catch(error => {
+          console.error('There was a problem with the fetch operation:', error);
+        });
+      </script>
+    
 
     <script src="/admin.js"></script>
 
