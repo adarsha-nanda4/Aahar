@@ -61,3 +61,28 @@ fetch(jsonFileName)
 
 // Display today's day and current week
 document.getElementById("Today").innerHTML = `<strong>${dayName} - Week ${currentWeek}</strong>`;
+
+
+const imgurl = "https://res.cloudinary.com/sanskaricoders/";
+
+// Fetch the API
+fetch('https://aahar-bckd.vercel.app/api/bhp/')
+  .then(response => response.json()) // Parse the JSON response
+  .then(data => {
+    const imgPath = data.img; // Store the 'img' value in a variable
+    console.log(imgPath); // Log it to verify
+
+    // Create the image URL
+    const imageUrl = imgurl + imgPath;
+
+    // Create an img element
+    const imgElement = document.createElement('img');
+    imgElement.src = imageUrl;
+    imgElement.alt = "Cloudinary Image";
+    imgElement.style.maxWidth = "100%"; // Makes the image responsive
+    imgElement.style.height = "auto";
+
+    // Append the img element to the container
+    document.getElementById('image-container').appendChild(imgElement);
+  })
+  .catch(error => console.error('Error:', error));
