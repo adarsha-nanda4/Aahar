@@ -63,26 +63,67 @@ fetch(jsonFileName)
 document.getElementById("Today").innerHTML = `<strong>${dayName} - Week ${currentWeek}</strong>`;
 
 
+
+
+
+
+
+
 const imgurl = "https://res.cloudinary.com/sanskaricoders/";
+const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
 
-// Fetch the API
-fetch('https://aahar-bckd.vercel.app/api/bhp/')
-  .then(response => response.json()) // Parse the JSON response
-  .then(data => {
-    const imgPath = data.img; // Store the 'img' value in a variable
-    console.log(imgPath); // Log it to verify
+// Add a loader to indicate loading
+const loader = document.createElement('div');
+loader.id = 'loader';
+loader.textContent = ''; // You can replace this with a spinner icon or animation
+loader.style.textAlign = 'center';
+loader.style.padding = '20px';
+loader.style.fontSize = '18px';
+loader.style.marginTop='30%';
+document.getElementById('image-container').appendChild(loader);
 
-    // Create the image URL
-    const imageUrl = imgurl + imgPath;
+// Check if the image URL is already stored in local storage
+const storedImage = localStorage.getItem('imageUrl');
 
-    // Create an img element
-    const imgElement = document.createElement('img');
-    imgElement.src = imageUrl;
-    imgElement.alt = "Cloudinary Image";
-    imgElement.style.maxWidth = "100%"; // Makes the image responsive
-    imgElement.style.height = "auto";
+if (storedImage) {
+  // If the image is already in local storage, display it
+  displayImage(storedImage);
+} else {
+  // Fetch the API
+  fetch(apiEndpoint)
+    .then(response => response.json()) // Parse the JSON response
+    .then(data => {
+      const imgPath = data.img; // Store the 'img' value in a variable
+      console.log(imgPath); // Log it to verify
 
-    // Append the img element to the container
-    document.getElementById('image-container').appendChild(imgElement);
-  })
-  .catch(error => console.error('Error:', error));
+      // Create the full image URL
+      const imageUrl = imgurl + imgPath;
+
+      // Save the image URL to local storage
+      localStorage.setItem('imageUrl', imageUrl);
+
+      // Display the image
+      displayImage(imageUrl);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      loader.textContent = 'Failed to load image.';
+    });
+}
+
+// Function to create and display the image
+function displayImage(imageUrl) {
+  const imgElement = document.createElement('img');
+  imgElement.src = imageUrl;
+  imgElement.alt = "Cloudinary Image";
+  imgElement.style.maxWidth = "100%"; // Makes the image responsive
+  imgElement.style.height = "auto";
+
+  // Remove the loader once the image is loaded
+  imgElement.onload = () => {
+    document.getElementById('loader').remove();
+  };
+
+  // Append the img element to the container
+  document.getElementById('image-container').appendChild(imgElement);
+}
