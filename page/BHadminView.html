@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>admine</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    .admine-view{
+        width: 100%;
+        height: 100vh;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+    <section class="admine-view">
+        <iframe id="menuIframe" allowfullscreen style="width:100%; height:100%; border:none;"></iframe>
+    </section>
+
+    <script>
+
+        fetch('weekpass.json')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+          })
+          .then(data => {
+      
+            const iframeUrl = data.bhlink; 
+            const iframeElement = document.getElementById('menuIframe');
+            iframeElement.src = iframeUrl;
+          })
+          .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+          });
+      </script>
+</body>
+</html>
