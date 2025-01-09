@@ -1,84 +1,83 @@
+// Element references
 const inputs = document.querySelectorAll('.otp-inputs input');
 const verifyButton = document.getElementById('verifyButton');
+const backButton = document.getElementById('backButton');
 const alertMsg = document.getElementById('alertMsg');
 const loginPage = document.getElementById('loginpage');
 const adminView = document.getElementById('admin-view');
 
-// URL of the API
-const apiURL = "https://aahar-bckd.vercel.app/login/";
+let authToken; // Variable to store the token
 
-// Function to send the request
-async function getToken(requestData) {
-  try {
-    const response = await fetch(apiURL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(requestData)
-    });
-
-    if (response.ok) {
-      const responseData = await response.json();
-      console.log("Token:", responseData.token);
-
-      // Store the token in local storage
-      localStorage.setItem("authToken", responseData.token);
-
-      alertMsg.innerText = "Login successful!";
-      alertMsg.style.color = "green";
-
-      // Redirect to admin view or perform any additional actions
-      loginPage.style.display = "none";
-      adminView.style.display = "block";
-
-      return responseData.token;
-    } else {
-      console.error("Failed to fetch the token:", response.status, response.statusText);
-      alertMsg.innerText = "Invalid passcode. Please try again.";
-      alertMsg.style.color = "red";
-    }
-  } catch (error) {
-    console.error("Error occurred:", error);
-    alertMsg.innerText = "An error occurred. Please try again later.";
-    alertMsg.style.color = "red";
-  }
-}
-
-// Event listener to handle input and passcode verification
-inputs.forEach((input, index) => {
-  input.addEventListener('input', () => {
-    if (input.value.length === 1 && index < inputs.length - 1) {
-      inputs[index + 1].focus(); // Move to the next input
-    }
-
-    // If all inputs are filled, trigger the verify button automatically
-    const enteredPasscode = Array.from(inputs).map(input => input.value).join('');
-    if (enteredPasscode.length === inputs.length) {
-      verifyButton.click();
-    }
-  });
-
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Backspace' && input.value === '' && index > 0) {
-      inputs[index - 1].focus(); // Move to the previous input
-    }
-  });
-});
-
-// Event listener for the verify button
+// Event listener for verify button
 verifyButton.addEventListener('click', () => {
-  const enteredPasscode = Array.from(inputs).map(input => input.value).join('');
+    let enteredPasscode = '';
+    inputs.forEach(input => {
+        enteredPasscode += input.value;
+    });
+    enteredPasscode = enteredPasscode.trim();
 
-  if (enteredPasscode.length === inputs.length) {
-    const requestData = {
-      username: "BH", // Replace this with dynamic username if needed
-      password: enteredPasscode // Use the entered passcode as the password
+    // Prepare data for POST request
+    const username = "BH";
+    const payload = {
+        username: username,
+        password: enteredPasscode
     };
 
-    getToken(requestData); // Send the passcode to generate the token
-  } else {
-    alertMsg.innerText = "Please fill all the fields.";
-    alertMsg.style.color = "red";
-  }
+    fetch('https://aahar-bckd.vercel.app/login/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to log in: ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.token) {
+            authToken = data.token; // Store the token
+            alertMsg.textContent = 'Login successful!';
+            alertMsg.style.color = 'green';
+
+            setTimeout(() => {
+                loginPage.style.display = "none";
+                adminView.style.display = "block";
+            }, 2000);
+        } else {
+            throw new Error('Token not received');
+        }
+    })
+    .catch(error => {
+        console.error('Login error:', error);
+        alertMsg.textContent = 'Incorrect passcode or login failed. Please try again.';
+        alertMsg.style.color = 'red';
+
+        // Clear inputs and refocus
+        inputs.forEach(input => (input.value = ''));
+        inputs[0].focus();
+    });
+});
+
+// Input navigation
+inputs.forEach((input, index) => {
+    input.addEventListener('input', () => {
+        if (input.value && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+        }
+    });
+
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !input.value && index > 0) {
+            inputs[index - 1].focus();
+        }
+    });
+});
+
+// Back button behavior
+backButton.addEventListener('click', () => {
+    inputs.forEach(input => (input.value = ''));
+    inputs[0].focus();
 });
