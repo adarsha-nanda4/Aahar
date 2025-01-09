@@ -67,8 +67,6 @@ document.getElementById("Today").innerHTML = `<strong>${dayName} - Week ${curren
 
 
 
-
-
 const imgurl = "https://res.cloudinary.com/sanskaricoders/";
 const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
 
@@ -79,7 +77,7 @@ loader.textContent = ''; // You can replace this with a spinner icon or animatio
 loader.style.textAlign = 'center';
 loader.style.padding = '20px';
 loader.style.fontSize = '18px';
-loader.style.marginTop='30%';
+loader.style.marginTop = '30%';
 document.getElementById('image-container').appendChild(loader);
 
 // Check if the image URL is already stored in local storage
@@ -91,7 +89,12 @@ if (storedImage) {
 } else {
   // Fetch the API
   fetch(apiEndpoint)
-    .then(response => response.json()) // Parse the JSON response
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
     .then(data => {
       const imgPath = data.img; // Store the 'img' value in a variable
       console.log(imgPath); // Log it to verify
@@ -107,7 +110,7 @@ if (storedImage) {
     })
     .catch(error => {
       console.error('Error:', error);
-      loader.textContent = 'Failed to load image.';
+      showError('Failed to fetch the image. Please try again later.');
     });
 }
 
@@ -124,6 +127,19 @@ function displayImage(imageUrl) {
     document.getElementById('loader').remove();
   };
 
+  // Handle image load failure
+  imgElement.onerror = () => {
+    showError('Failed to load the image. Please try again later.');
+  };
+
   // Append the img element to the container
   document.getElementById('image-container').appendChild(imgElement);
+}
+
+// Function to display error messages
+function showError(message) {
+  const errorDiv = document.getElementById('loader');
+  errorDiv.textContent = message;
+  errorDiv.style.color = 'red';
+  errorDiv.style.fontWeight = 'bold';
 }
