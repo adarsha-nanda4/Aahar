@@ -73,7 +73,7 @@ const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
 // Add a loader to indicate loading
 const loader = document.createElement('div');
 loader.id = 'loader';
-loader.textContent = 'Loading...'; // You can replace this with a spinner icon or animation
+loader.textContent = ''; // You can replace this with a spinner icon or animation
 loader.style.textAlign = 'center';
 loader.style.padding = '20px';
 loader.style.fontSize = '18px';
