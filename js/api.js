@@ -66,7 +66,6 @@ document.getElementById("Today").innerHTML = `<strong>${dayName} - Week ${curren
 
 
 
-
 const imgurl = "https://res.cloudinary.com/sanskaricoders/";
 const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
 
@@ -95,36 +94,22 @@ fetch(apiEndpoint)
     // Create the full image URL
     const imageUrl = imgurl + imgPath;
 
-    // Display the image
-    displayImage(imageUrl);
+    // Set the background image
+    setBackgroundImage(imageUrl);
   })
   .catch(error => {
     console.error('Error:', error);
     showError('Failed to fetch the image. Please try again later.');
   });
 
-// Function to create and display the image
-function displayImage(imageUrl) {
-  const imgElement = document.createElement('img');
-  imgElement.src = imageUrl;
-  imgElement.alt = "Cloudinary Image";
-  imgElement.style.maxWidth = "100%"; // Makes the image responsive
-  imgElement.style.height = "auto";
-
-  // Remove the loader once the image is loaded
-  imgElement.onload = () => {
-    document.getElementById('loader').remove();
-  };
-
-  // Handle image load failure
-  imgElement.onerror = () => {
-    showError('Failed to load the image. Please try again later.');
-  };
-
-  // Clear previous images (if any) and append the new image
+// Function to set the background image
+function setBackgroundImage(imageUrl) {
   const imageContainer = document.getElementById('image-container');
-  imageContainer.innerHTML = ''; // Clear previous content
-  imageContainer.appendChild(imgElement);
+  imageContainer.style.backgroundImage = `url(${imageUrl})`;
+  // imageContainer.style.width = '100%'; // Set the container width (adjust as needed)
+
+  // Remove the loader once the background is set
+  document.getElementById('loader').remove();
 }
 
 // Function to display error messages
