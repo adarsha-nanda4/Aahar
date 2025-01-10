@@ -67,26 +67,97 @@ document.getElementById("Today").innerHTML = `<strong>${dayName} - Week ${curren
 
 
 
+// const imgurl = "https://res.cloudinary.com/sanskaricoders/";
+// const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
+
+// // Add a loader to indicate loading
+// const loader = document.createElement('div');
+// loader.id = 'loader';
+// loader.textContent = ''; // You can replace this with a spinner icon or animation
+// loader.style.textAlign = 'center';
+// loader.style.padding = '20px';
+// loader.style.fontSize = '18px';
+// loader.style.marginTop = '30%';
+// document.getElementById('image-container').appendChild(loader);
+
+// // Check if the image URL is already stored in local storage
+// const storedImage = localStorage.getItem('imageUrl');
+
+// if (storedImage) {
+//   // If the image is already in local storage, display it
+//   displayImage(storedImage);
+// } else {
+//   // Fetch the API
+//   fetch(apiEndpoint)
+//     .then(response => {
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//       return response.json();
+//     })
+//     .then(data => {
+//       const imgPath = data.img; // Store the 'img' value in a variable
+//       console.log(imgPath); // Log it to verify
+
+//       // Create the full image URL
+//       const imageUrl = imgurl + imgPath;
+
+//       // Save the image URL to local storage
+//       localStorage.setItem('imageUrl', imageUrl);
+
+//       // Display the image
+//       displayImage(imageUrl);
+//     })
+//     .catch(error => {
+//       console.error('Error:', error);
+//       showError('Failed to fetch the image. Please try again later.');
+//     });
+// }
+
+// // Function to create and display the image
+// function displayImage(imageUrl) {
+//   const imgElement = document.createElement('img');
+//   imgElement.src = imageUrl;
+//   imgElement.alt = "Cloudinary Image";
+//   imgElement.style.maxWidth = "100%"; // Makes the image responsive
+//   imgElement.style.height = "auto";
+
+//   // Remove the loader once the image is loaded
+//   imgElement.onload = () => {
+//     document.getElementById('loader').remove();
+//   };
+
+//   // Handle image load failure
+//   imgElement.onerror = () => {
+//     showError('Failed to load the image. Please try again later.');
+//   };
+
+//   // Append the img element to the container
+//   document.getElementById('image-container').appendChild(imgElement);
+// }
+
+// // Function to display error messages
+// function showError(message) {
+//   const errorDiv = document.getElementById('loader');
+//   errorDiv.textContent = message;
+//   errorDiv.style.color = 'red';
+//   errorDiv.style.fontWeight = 'bold';
+// }
 const imgurl = "https://res.cloudinary.com/sanskaricoders/";
 const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
 
 // Add a loader to indicate loading
 const loader = document.createElement('div');
 loader.id = 'loader';
-loader.textContent = ''; // You can replace this with a spinner icon or animation
+loader.textContent = 'Loading...'; // You can replace this with a spinner icon or animation
 loader.style.textAlign = 'center';
 loader.style.padding = '20px';
 loader.style.fontSize = '18px';
 loader.style.marginTop = '30%';
 document.getElementById('image-container').appendChild(loader);
 
-// Check if the image URL is already stored in local storage
-const storedImage = localStorage.getItem('imageUrl');
-
-if (storedImage) {
-  // If the image is already in local storage, display it
-  displayImage(storedImage);
-} else {
+// Function to fetch and update the image
+function fetchAndUpdateImage() {
   // Fetch the API
   fetch(apiEndpoint)
     .then(response => {
@@ -114,6 +185,17 @@ if (storedImage) {
     });
 }
 
+// Check if the image URL is already stored in local storage
+const storedImage = localStorage.getItem('imageUrl');
+
+if (storedImage) {
+  // If the image is already in local storage, display it
+  displayImage(storedImage);
+} else {
+  // If no image is stored, fetch new data
+  fetchAndUpdateImage();
+}
+
 // Function to create and display the image
 function displayImage(imageUrl) {
   const imgElement = document.createElement('img');
@@ -132,8 +214,10 @@ function displayImage(imageUrl) {
     showError('Failed to load the image. Please try again later.');
   };
 
-  // Append the img element to the container
-  document.getElementById('image-container').appendChild(imgElement);
+  // Clear previous images (if any) and append the new image
+  const imageContainer = document.getElementById('image-container');
+  imageContainer.innerHTML = ''; // Clear previous content
+  imageContainer.appendChild(imgElement);
 }
 
 // Function to display error messages
@@ -143,3 +227,6 @@ function showError(message) {
   errorDiv.style.color = 'red';
   errorDiv.style.fontWeight = 'bold';
 }
+
+// Optionally, you could set an interval or event to fetch and update the image automatically, for example:
+// setInterval(fetchAndUpdateImage, 5000); // Every 5 seconds
