@@ -9,7 +9,6 @@
     gap: 10px;
     display: flex;
     flex-direction: column;
-    /* display: none; */
 
 }
 .navbar-box{
@@ -151,6 +150,9 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     display: flex;
     justify-content: end;
   }
+  .devimg{
+    border-radius: 10px;
+  }
   .devlopername{
     font-size: 20px;
     text-align: center;
@@ -173,5 +175,49 @@ padding: 4px 8px;
   display: flex;
   justify-content: start;
   align-items: end;
+
+}
+
+
+@media screen and (min-width: 600px) {
+  #devloperpage {
+      display: none;
+  }
+
+}
+
+
+@media screen and (max-width: 601px) {
+  #showmsg-box{
+    display:none;
+  }
+
+}
+
+
+#showmsg-box{
+  width: 100%;
+  height: 100vh;
+
+
+}
+.showMsg{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.msg{
+  font-family: times, Times New Roman, times-roman, georgia, serif;
+	color: white;
+	font-size: 25px;
+	line-height: 44px;
+	letter-spacing: 2px;
+	font-weight: bold;
+  padding: 10px;
+  background-color: rgb(50, 105, 235);
 
 }
