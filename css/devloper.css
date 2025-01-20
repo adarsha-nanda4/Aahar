@@ -143,12 +143,14 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     padding-top: 10px;
     padding-left: 20px;
     gap: 10px;
+    overflow: hidden;
   }
   .developer-img-box{
     width: 50%;
     height: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    align-items: center;
   }
   .devimg{
     border-radius: 10px;
@@ -166,15 +168,15 @@ padding: 4px 8px;
   border: 2px solid rgb(51, 106, 238);
   color:rgb(43, 102, 239) ;
   font-size: 15px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .developer-img-box2{
   width: 50%;
   height: 100%;
   display: flex;
-  justify-content: start;
-  align-items: end;
+  justify-content: center;
+  align-items: center;
 
 }
 
