@@ -348,8 +348,8 @@ align-items: end;
   border-radius: 50%;
   background-color: rgba(128, 128, 128, 0.721);
   position:fixed;
-  bottom:10px;
-  right: 10px;
+  bottom:15px;
+  right: 15px;
 
   display: flex;
   justify-content: center;
