@@ -3,62 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Install Aahar App</title>
+  <title>Install PWA</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 20px;
+      margin-top: 50px;
     }
     button {
-      background-color: #007bff;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
       color: white;
       border: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      cursor: pointer;
       border-radius: 5px;
+      cursor: pointer;
     }
-    button:disabled {
-      background-color: #cccccc;
-      cursor: not-allowed;
+    button:hover {
+      background-color: #45a049;
+    }
+    #fallbackMessage {
+      margin-top: 20px;
+      color: #888;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <h1>Install Aahar App</h1>
-  <p>Click the button below to add the app to your home screen.</p>
-  <button id="installButton" disabled>Download App</button>
+  <h1>Install Our App</h1>
+  <p>Click the button below to install the app to your home screen.</p>
+  <button id="installBtn">Download</button>
+  <p id="fallbackMessage" style="display: none;">
+    Installation prompt is not supported on this device or browser. Please add to your home screen manually.
+  </p>
 
   <script>
     let deferredPrompt;
 
+    // Show the install button by default
+    const installBtn = document.getElementById('installBtn');
+    const fallbackMessage = document.getElementById('fallbackMessage');
+
+    installBtn.style.display = 'inline-block';
+
     // Listen for the beforeinstallprompt event
     window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault();
-      deferredPrompt = event;
+      event.preventDefault(); // Prevent the mini-infobar from appearing
+      deferredPrompt = event; // Save the event for later use
 
-      const installButton = document.getElementById('installButton');
-      installButton.disabled = false;
+      console.log('beforeinstallprompt event detected');
 
-      installButton.addEventListener('click', async () => {
-        installButton.disabled = true;
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-
-        if (outcome === 'accepted') {
-          console.log('App installation accepted');
+      // Add event listener to the button
+      installBtn.addEventListener('click', () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt(); // Show the install prompt
+          deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the PWA installation');
+            } else {
+              console.log('User dismissed the PWA installation');
+            }
+            deferredPrompt = null; // Clear the prompt
+          });
         } else {
-          console.log('App installation dismissed');
+          console.log('Install prompt is not available');
+          fallbackMessage.style.display = 'block'; // Show fallback message
         }
-
-        deferredPrompt = null;
       });
     });
 
-    // Optionally, log when the app is already installed
-    window.addEventListener('appinstalled', () => {
-      console.log('Aahar App has been installed');
+    // If the event doesn't fire, display a fallback message
+    installBtn.addEventListener('click', () => {
+      if (!deferredPrompt) {
+        fallbackMessage.style.display = 'block';
+      }
     });
   </script>
 </body>
