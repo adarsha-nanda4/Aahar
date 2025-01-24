@@ -166,7 +166,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   /* display: none; */
+=======
+  
+>>>>>>> 2fe2804ac826130a0d9cfb9ea15e1cf7caebdcb5
 }
 .menu-img-box{
   overflow: hidden;
