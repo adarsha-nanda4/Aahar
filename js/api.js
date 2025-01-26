@@ -58,70 +58,94 @@ fetch(jsonFileName)
     }
   })
 
-
-// Display today's day and current week
-document.getElementById("Today").innerHTML = `<strong>${dayName} - Week ${currentWeek}</strong>`;
-
-
-
-const imgurl = "https://res.cloudinary.com/sanskaricoders/";
-const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
-
-// Add a loader to indicate loading
-const loader = document.createElement('div');
-loader.id = 'loader';
-loader.textContent = '';
-loader.style.textAlign = 'center';
-loader.style.padding = '20px';
-loader.style.fontSize = '18px';
-loader.style.marginTop = '30%';
-document.getElementById('image-container').appendChild(loader);
-
-// Check for existing data in local storage
-const storedData = localStorage.getItem('backgroundImage');
-if (storedData) {
-  const parsedData = JSON.parse(storedData);
-  setBackgroundImage(parsedData.imgUrl);
-}
-
-// Fetch new data from the API
-fetch(apiEndpoint)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+  const imgurl = "https://res.cloudinary.com/sanskaricoders/";
+  const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
+  let imgerror = document.getElementById("imgerror");
+  
+  // Add a loader to indicate loading
+  const loader = document.createElement('div');
+  loader.id = 'loader';
+  loader.textContent = '';
+  loader.style.textAlign = 'center';
+  loader.style.padding = '20px';
+  loader.style.fontSize = '18px';
+  loader.style.marginTop = '30%';
+  document.getElementById('image-container').appendChild(loader);
+  
+  // Check for existing data in local storage
+  const storedData = localStorage.getItem('backgroundImage');
+  
+  // Fetch data from the API
+  fetch(apiEndpoint)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.message === "Image expired") {
+        // Remove old data from local storage
+        localStorage.removeItem('backgroundImage');
+        
+        // Display the error message in the imgerror element
+        if (imgerror) {
+          imgerror.textContent = "The image has expired. Please try again later.";
+          imgerror.style.color = 'red';
+          imgerror.style.fontWeight = 'bold';
+          imgerror.style.textAlign = 'center'; // Ensure proper alignment
+        }
+  
+        // Remove the loader after handling expired image
+        const loaderElement = document.getElementById('loader');
+        if (loaderElement) loaderElement.remove();
+      } else if (data.img) {
+        const imgPath = data.img;
+        const imageUrl = imgurl + imgPath;
+  
+        // Compare with local storage data
+        if (!storedData || JSON.parse(storedData).imgUrl !== imageUrl) {
+          // Update local storage
+          localStorage.setItem('backgroundImage', JSON.stringify({ imgUrl: imageUrl }));
+          
+          // Update the background image
+          setBackgroundImage(imageUrl);
+        } else {
+          // If data is the same, just remove the loader
+          removeLoader();
+        }
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching the API:', error);
+      showError("The photo will be available soon.");
+      removeLoader(); // Remove the loader if there's an error
+    });
+  
+  // Function to set the background image
+  function setBackgroundImage(imageUrl) {
+    const imageContainer = document.getElementById('image-container');
+    imageContainer.style.backgroundImage = `url(${imageUrl})`;
+  
+    // Remove the loader once the background is set
+    removeLoader();
+  }
+  
+  // Function to display error messages
+  function showError(message) {
+    if (imgerror) {
+      imgerror.textContent = message;
+      imgerror.style.color = 'red';
+      imgerror.style.fontWeight = 'bold';
+      imgerror.style.textAlign = 'center'; // Ensure proper alignment
     }
-    return response.json();
-  })
-  .then(data => {
-    const imgPath = data.img; // Store the 'img' value in a variable
-    console.log(imgPath); // Log it to verify
-
-    // Create the full image URL
-    const imageUrl = imgurl + imgPath;
-
-    // Compare with local storage and update if needed
-    if (!storedData || JSON.parse(storedData).imgUrl !== imageUrl) {
-      // Update local storage
-      localStorage.setItem('backgroundImage', JSON.stringify({ imgUrl: imageUrl }));
-      // Update the background image
-      setBackgroundImage(imageUrl);
+  }
+  
+  // Function to remove the loader
+  function removeLoader() {
+    const loaderElement = document.getElementById('loader');
+    if (loaderElement) {
+      loaderElement.remove();
     }
-  })
-
-// Function to set the background image
-function setBackgroundImage(imageUrl) {
-  const imageContainer = document.getElementById('image-container');
-  imageContainer.style.backgroundImage = `url(${imageUrl})`;
-
-  // Remove the loader once the background is set
-  const loaderElement = document.getElementById('loader');
-  if (loaderElement) loaderElement.remove();
-}
-
-// Function to display error messages
-function showError(message) {
-  const errorDiv = document.getElementById('loader');
-  errorDiv.textContent = message;
-  errorDiv.style.color = 'red';
-  errorDiv.style.fontWeight = 'bold';
-}
+  }
+  
