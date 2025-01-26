@@ -57,7 +57,6 @@ fetch(jsonFileName)
       document.getElementById("dinneritem").innerHTML = "No meal data available.";
     }
   })
-
   const imgurl = "https://res.cloudinary.com/sanskaricoders/";
   const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
   let imgerror = document.getElementById("imgerror");
@@ -65,17 +64,13 @@ fetch(jsonFileName)
   // Add a loader to indicate loading
   const loader = document.createElement('div');
   loader.id = 'loader';
-  loader.textContent = '';
   loader.style.textAlign = 'center';
   loader.style.padding = '20px';
   loader.style.fontSize = '18px';
   loader.style.marginTop = '30%';
   document.getElementById('image-container').appendChild(loader);
   
-  // Check for existing data in local storage
-  const storedData = localStorage.getItem('backgroundImage');
-  
-  // Fetch data from the API
+  // Fetch image data first and store it in localStorage
   fetch(apiEndpoint)
     .then(response => {
       if (!response.ok) {
@@ -84,13 +79,14 @@ fetch(jsonFileName)
       return response.json();
     })
     .then(data => {
+      // Check if the response is "Image expired"
       if (data.message === "Image expired") {
         // Remove old data from local storage
         localStorage.removeItem('backgroundImage');
         
         // Display the error message in the imgerror element
         if (imgerror) {
-          imgerror.textContent = "The image has expired. Please try again later.";
+          showError("The Photo Will Be Updated Shortly...😕");
           imgerror.style.color = 'red';
           imgerror.style.fontWeight = 'bold';
           imgerror.style.textAlign = 'center'; // Ensure proper alignment
@@ -100,25 +96,20 @@ fetch(jsonFileName)
         const loaderElement = document.getElementById('loader');
         if (loaderElement) loaderElement.remove();
       } else if (data.img) {
+        // Store the image data in localStorage first
         const imgPath = data.img;
         const imageUrl = imgurl + imgPath;
   
-        // Compare with local storage data
-        if (!storedData || JSON.parse(storedData).imgUrl !== imageUrl) {
-          // Update local storage
-          localStorage.setItem('backgroundImage', JSON.stringify({ imgUrl: imageUrl }));
-          
-          // Update the background image
-          setBackgroundImage(imageUrl);
-        } else {
-          // If data is the same, just remove the loader
-          removeLoader();
-        }
+        // Store in localStorage
+        localStorage.setItem('backgroundImage', JSON.stringify({ imgUrl: imageUrl }));
+  
+        // Once data is stored, proceed with updating the background and other logic
+        setBackgroundImage(imageUrl);
       }
     })
     .catch(error => {
       console.error('Error fetching the API:', error);
-      showError("The Photo Will Be Updated Shortly...😕");
+      showError("Failed to load data. Please try again later.");
       removeLoader(); // Remove the loader if there's an error
     });
   
@@ -135,6 +126,8 @@ fetch(jsonFileName)
   function showError(message) {
     if (imgerror) {
       imgerror.textContent = message;
+      imgerror.style.color = 'red';
+      imgerror.style.fontWeight = 'bold';
       imgerror.style.textAlign = 'center'; // Ensure proper alignment
     }
   }
