@@ -57,6 +57,12 @@ fetch(jsonFileName)
       document.getElementById("dinneritem").innerHTML = "No meal data available.";
     }
   })
+
+
+
+
+
+  
   const imgurl = "https://res.cloudinary.com/sanskaricoders/";
   const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
   let imgerror = document.getElementById("imgerror");
@@ -109,7 +115,7 @@ fetch(jsonFileName)
     })
     .catch(error => {
       console.error('Error fetching the API:', error);
-      showError("Failed to load data. Please try again later.");
+      showError("The Photo Will Be Updated Shortly...😕");
       removeLoader(); // Remove the loader if there's an error
     });
   
