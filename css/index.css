@@ -196,10 +196,8 @@ background-repeat: no-repeat;
   top: 40%;
 text-align: center;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-/* color: rgb(102, 102, 102); */
-color: red;
 font-size: 16px;
-
+color: gray;
 }
 
 /* Hide the menu-img-container on screens wider than 768px (PC view) */

@@ -93,8 +93,6 @@ fetch(jsonFileName)
         // Display the error message in the imgerror element
         if (imgerror) {
           showError("The Photo Will Be Updated Shortly...😕");
-          imgerror.style.color = 'red';
-          imgerror.style.fontWeight = 'bold';
           imgerror.style.textAlign = 'center'; // Ensure proper alignment
         }
   
@@ -132,8 +130,6 @@ fetch(jsonFileName)
   function showError(message) {
     if (imgerror) {
       imgerror.textContent = message;
-      imgerror.style.color = 'red';
-      imgerror.style.fontWeight = 'bold';
       imgerror.style.textAlign = 'center'; // Ensure proper alignment
     }
   }
