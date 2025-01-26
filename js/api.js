@@ -118,7 +118,7 @@ fetch(jsonFileName)
     })
     .catch(error => {
       console.error('Error fetching the API:', error);
-      showError("The photo will be available soon.");
+      showError("The Photo Will Be Updated Shortly...😕");
       removeLoader(); // Remove the loader if there's an error
     });
   
@@ -135,8 +135,6 @@ fetch(jsonFileName)
   function showError(message) {
     if (imgerror) {
       imgerror.textContent = message;
-      imgerror.style.color = 'red';
-      imgerror.style.fontWeight = 'bold';
       imgerror.style.textAlign = 'center'; // Ensure proper alignment
     }
   }
