@@ -166,7 +166,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: none; */
+  display: none;
 }
 .menu-img-box{
   overflow: hidden;
@@ -179,10 +179,22 @@
 width: 100%;
 height: 100%;
 overflow: hidden;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+
 background-position: center;
 background-size: contain;
 background-repeat: no-repeat; 
 
+}
+#imgerror{
+
+  width: 100%;
+  position: relative;
+  top: 30%;
+text-align: center;
 }
 
 /* Hide the menu-img-container on screens wider than 768px (PC view) */
