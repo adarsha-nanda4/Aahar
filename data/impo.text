@@ -7,7 +7,7 @@ const dayName = days[myDate.getDay()];
 
 // Function to get the current week number dynamically (resets after 4 weeks)
 function getCurrentWeek() {
-  const startDate = new Date("2024-12-16T00:00:00Z"); // Start date in UTC
+  const startDate = new Date("2024-12-23T00:00:00Z"); // Start date in UTC
   const currentDate = new Date(); // Current date
   
   // Convert both to UTC for accurate day difference
@@ -26,11 +26,9 @@ function getCurrentWeek() {
 
 // Dynamically determine the JSON file for the current week
 const currentWeek = getCurrentWeek();
-const jsonFileName = `LHweek${currentWeek}.json`; // e.g., week1.json, week2.json, etc.
+const jsonFileName = `week${currentWeek}.json`; // e.g., week1.json, week2.json, etc.
 console.log(`Current Week: ${currentWeek}`);
 console.log(`JSON File: ${jsonFileName}`);
-
-
 
 // Fetch today's meals from the corresponding JSON file
 fetch(jsonFileName)
@@ -63,3 +61,72 @@ fetch(jsonFileName)
 
 // Display today's day and current week
 document.getElementById("Today").innerHTML = `<strong>${dayName} - Week ${currentWeek}</strong>`;
+
+
+
+const imgurl = "https://res.cloudinary.com/sanskaricoders/";
+const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
+
+// Add a loader to indicate loading
+const loader = document.createElement('div');
+loader.id = 'loader';
+loader.textContent = '';
+loader.style.textAlign = 'center';
+loader.style.padding = '20px';
+loader.style.fontSize = '18px';
+loader.style.marginTop = '30%';
+document.getElementById('image-container').appendChild(loader);
+
+// Check for existing data in local storage
+const storedData = localStorage.getItem('backgroundImage');
+if (storedData) {
+  const parsedData = JSON.parse(storedData);
+  setBackgroundImage(parsedData.imgUrl);
+}
+
+// Fetch new data from the API
+fetch(apiEndpoint)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    const imgPath = data.img; // Store the 'img' value in a variable
+    console.log(imgPath); // Log it to verify
+
+    // Create the full image URL
+    const imageUrl = imgurl + imgPath;
+
+    // Compare with local storage and update if needed
+    if (!storedData || JSON.parse(storedData).imgUrl !== imageUrl) {
+      // Update local storage
+      localStorage.setItem('backgroundImage', JSON.stringify({ imgUrl: imageUrl }));
+      // Update the background image
+      setBackgroundImage(imageUrl);
+    }
+  })
+
+// Function to set the background image
+function setBackgroundImage(imageUrl) {
+  const imageContainer = document.getElementById('image-container');
+  imageContainer.style.backgroundImage = `url(${imageUrl})`;
+
+  // Remove the loader once the background is set
+  const loaderElement = document.getElementById('loader');
+  if (loaderElement) loaderElement.remove();
+}
+
+// Function to display error messages
+function showError(message) {
+  const errorDiv = document.getElementById('loader');
+  errorDiv.textContent = message;
+  errorDiv.style.color = 'red';
+  errorDiv.style.fontWeight = 'bold';
+}
+
+
+
+
+{"message": "Image expired"}

@@ -4,6 +4,9 @@ const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
 // Calculate the current day
 const myDate = new Date();
 const dayName = days[myDate.getDay()];
+console.log(dayName)
+
+
 
 // Function to get the current week number dynamically (resets after 4 weeks)
 function getCurrentWeek() {
@@ -24,11 +27,15 @@ function getCurrentWeek() {
   return currentWeek; // Week number between 1 and 4
 }
 
+
 // Dynamically determine the JSON file for the current week
 const currentWeek = getCurrentWeek();
 const jsonFileName = `week${currentWeek}.json`; // e.g., week1.json, week2.json, etc.
 console.log(`Current Week: ${currentWeek}`);
-console.log(`JSON File: ${jsonFileName}`);
+
+let Today = document.getElementById("Today")
+Today.innerHTML=(`${dayName} - Week ${currentWeek}`)
+
 
 // Fetch today's meals from the corresponding JSON file
 fetch(jsonFileName)
