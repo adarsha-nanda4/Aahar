@@ -3,39 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>Next Day</title>
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <meta name="theme-color" content="#000000">
-    <link rel="apple-touch-icon" href="/data/logo.png">
-    <link rel="manifest" href="/app.json">
-    <meta name="google-site-verification" content="60pLNACfyes5TuAF32JdQxe_hsgIXNWYBaaqG_egnQ0" />
-</head>
 <body>
 <!-- navbar -->
-<section class="navbar">
-
-<div class="menu">
-<div class="item">
-<a href="#" class="link">
-<span class="menuBtn"><i class='bx bx-menu-alt-left'></i></span></a>
-<div class="submenu">
-
-<div class="submenu-item" id="BH">
-<a href="/index.html" class="submenu-link"> BH </a>
-</div>
-
-<div class="submenu-item" id="LH">
-<a href="/LHpage.html" class="submenu-link"> LH </a>
-</div>
-
-</div></div></div>
-
-<div class="login-box"> 
-    
-  <a href="BHadminView.html"> <img id="loginIcon" src="/data/password.png"  alt="" width="30px"></a> 
-</div>
+<section class="navbar2">
+<div class="back-icon"><a href="/index.html"><i class='bx bx-left-arrow-alt' ></i></a></div>
+<div class="nextdaybanner">NEXT DAY MENU</div>
 </section>
 
 
@@ -46,17 +22,14 @@
  <section class="addbox">
 <p class="addbox-text" >Never Surprised</p>
 <p>Check the Menu First!"</p>
-<div>
-    <div id="Today">Today </div> <Span class="Today"> BH</Span></div>
+<div><div id="Today">Today </div> <Span class="Today"> BH</Span></div>
  </section>
 
 
 <!-- menu img -->
 
 <section class="breakfast-textline">
-    <div class="breakfast-text">Today Live Menu </div>
-
-    <div class="next-day-btn"><a href="/nextday.html">Next Menu  <i class=' bx bx-right-arrow-alt'></i></a></div>
+    <div class="breakfast-text">Next Day Menu </div>
     </section>
 
  <section class="menu-img-container">
@@ -119,30 +92,6 @@
 
 </div>
 </section>
-<!-- about dev btn -->
-
-<section  class="dev-btn">  
-<a href="/page/devloper.html">
-    <img src="/data/arrow2.png" width="80%" alt="">
-</a>
-</section>
-
-
-<div class="aboutbtn"></div>
-
-<script src="js/api.js"></script>
-<script src="/js/main.js"></script>
-<!-- <script src="/js/vist.js"></script> -->
-
-<script> 
-    if (!navigator.serviceWorker.controller) {
-        navigator.serviceWorker.register("/sw.js").then(function(reg) {
-            console.log("Service worker has been registered for scope: " + reg.scope);
-        });
-    } 
-    </script>
-
- 
-    
+<script src="/js/nextday.js"></script>
 </body>
 </html>

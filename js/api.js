@@ -70,84 +70,84 @@ fetch(jsonFileName)
 
 
   
-  const imgurl = "https://res.cloudinary.com/sanskaricoders/";
-  const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
-  let imgerror = document.getElementById("imgerror");
+  // const imgurl = "https://res.cloudinary.com/sanskaricoders/";
+  // const apiEndpoint = 'https://aahar-bckd.vercel.app/api/bhp/';
+  // let imgerror = document.getElementById("imgerror");
   
-  // Add a loader to indicate loading
-  const loader = document.createElement('div');
-  loader.id = 'loader';
-  loader.style.textAlign = 'center';
-  loader.style.padding = '20px';
-  loader.style.fontSize = '18px';
-  loader.style.marginTop = '30%';
-  document.getElementById('image-container').appendChild(loader);
+  // // Add a loader to indicate loading
+  // const loader = document.createElement('div');
+  // loader.id = 'loader';
+  // loader.style.textAlign = 'center';
+  // loader.style.padding = '20px';
+  // loader.style.fontSize = '18px';
+  // loader.style.marginTop = '30%';
+  // document.getElementById('image-container').appendChild(loader);
   
-  // Fetch image data first and store it in localStorage
-  fetch(apiEndpoint)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Check if the response is "Image expired"
-      if (data.message === "Image expired") {
-        // Remove old data from local storage
-        localStorage.removeItem('backgroundImage');
+  // // Fetch image data first and store it in localStorage
+  // fetch(apiEndpoint)
+  //   .then(response => {
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
+  //     return response.json();
+  //   })
+  //   .then(data => {
+  //     // Check if the response is "Image expired"
+  //     if (data.message === "Image expired") {
+  //       // Remove old data from local storage
+  //       localStorage.removeItem('backgroundImage');
         
-        // Display the error message in the imgerror element
-        if (imgerror) {
-          showError("The Photo Will Be Updated Shortly...😕");
-          imgerror.style.textAlign = 'center'; // Ensure proper alignment
-        }
+  //       // Display the error message in the imgerror element
+  //       if (imgerror) {
+  //         showError("The Photo Will Be Updated Shortly...😕");
+  //         imgerror.style.textAlign = 'center'; // Ensure proper alignment
+  //       }
   
-        // Remove the loader after handling expired image
-        const loaderElement = document.getElementById('loader');
-        if (loaderElement) loaderElement.remove();
-      } else if (data.img) {
-        // Store the image data in localStorage first
-        const imgPath = data.img;
-        const imageUrl = imgurl + imgPath;
+  //       // Remove the loader after handling expired image
+  //       const loaderElement = document.getElementById('loader');
+  //       if (loaderElement) loaderElement.remove();
+  //     } else if (data.img) {
+  //       // Store the image data in localStorage first
+  //       const imgPath = data.img;
+  //       const imageUrl = imgurl + imgPath;
   
-        // Store in localStorage
-        localStorage.setItem('backgroundImage', JSON.stringify({ imgUrl: imageUrl }));
+  //       // Store in localStorage
+  //       localStorage.setItem('backgroundImage', JSON.stringify({ imgUrl: imageUrl }));
   
-        // Once data is stored, proceed with updating the background and other logic
-        setBackgroundImage(imageUrl);
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching the API:', error);
-      showError("The Photo Will Be Updated Shortly...😕");
-      removeLoader(); // Remove the loader if there's an error
-    });
+  //       // Once data is stored, proceed with updating the background and other logic
+  //       setBackgroundImage(imageUrl);
+  //     }
+  //   })
+  //   .catch(error => {
+  //     console.error('Error fetching the API:', error);
+  //     showError("The Photo Will Be Updated Shortly...😕");
+  //     removeLoader(); // Remove the loader if there's an error
+  //   });
   
-  // Function to set the background image
-  function setBackgroundImage(imageUrl) {
-    const imageContainer = document.getElementById('image-container');
-    imageContainer.style.backgroundImage = `url(${imageUrl})`;
+  // // Function to set the background image
+  // function setBackgroundImage(imageUrl) {
+  //   const imageContainer = document.getElementById('image-container');
+  //   imageContainer.style.backgroundImage = `url(${imageUrl})`;
   
-    // Remove the loader once the background is set
-    removeLoader();
-  }
+  //   // Remove the loader once the background is set
+  //   removeLoader();
+  // }
   
-  // Function to display error messages
-  function showError(message) {
-    if (imgerror) {
-      imgerror.textContent = message;
-      imgerror.style.textAlign = 'center'; // Ensure proper alignment
-    }
-  }
+  // // Function to display error messages
+  // function showError(message) {
+  //   if (imgerror) {
+  //     imgerror.textContent = message;
+  //     imgerror.style.textAlign = 'center'; // Ensure proper alignment
+  //   }
+  // }
   
-  // Function to remove the loader
-  function removeLoader() {
-    const loaderElement = document.getElementById('loader');
-    if (loaderElement) {
-      loaderElement.remove();
-    }
-  }
+  // // Function to remove the loader
+  // function removeLoader() {
+  //   const loaderElement = document.getElementById('loader');
+  //   if (loaderElement) {
+  //     loaderElement.remove();
+  //   }
+  // }
   
 
   
