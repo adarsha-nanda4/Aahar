@@ -3,7 +3,17 @@ const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
 
 // Calculate the current day
 const myDate = new Date();
-const dayName = days[myDate.getDay()+1];
+const dayNamee = days[myDate.getDay()];
+
+let dayName;
+
+if(dayNamee==="Saturday"){
+  dayName="Sunday";
+}
+else{
+  dayName=(dayNamee+1);
+}
+
 
 // Function to get the current week number dynamically (resets after 4 weeks)
 function getCurrentWeek() {
