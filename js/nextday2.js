@@ -3,7 +3,7 @@ const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
 
 // Calculate the current day
 const myDate = new Date();
-const dayNamee = days[myDate.getDay()];
+let dayNamee = days[myDate.getDay()];
 
 let dayName;
 if(dayNamee==="Saturday" ){
