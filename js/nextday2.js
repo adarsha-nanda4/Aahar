@@ -6,12 +6,12 @@ const myDate = new Date();
 const dayNamee = days[myDate.getDay()];
 
 let dayName;
-
-if(dayNamee==="Saturday"){
+if(dayNamee==="Saturday" ){
   dayName="Sunday";
 }
-else{
-  dayName=(dayNamee+1);
+else {
+  dayNamee = days[myDate.getDay()+1];
+  dayName=dayNamee;
 }
 
 
