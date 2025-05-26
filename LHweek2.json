@@ -1,54 +1,44 @@
 {
-  
-      "Monday": 
-      {
-        "Breakfast": "Poori, Aloo Kasa, Tea",
-        "Lunch": "Rice, Roti, Dal, Tomato Khata, Vegetable Makhani, Jeera Aloo",
-        "Snacks": "Misal Pav, Tea",
-        "Dinner": "Rice, Roti, Dal Fry, Aloo-Chana Curry, Aloo Beans Bhaja, Rasgulla"
-      },
-      "Tuesday": 
-      {
-        "Breakfast": "Bread, Aloo Chop Big, Egg, Jam, Banana, Coffee",
-        "Lunch": "Rice, Roti, Dal Fry, Malai Kofta, Prawn-Aloo Curry, Cabbage Mattar Bhaja, Dahi Salad",
-        "Snacks": "Papadi Chaat, Ghuguni, Tea",
-        "Dinner": "Rice, Roti, Dal Fry, Manchurian, Potol Aloo Bhaja, Fryums, Gulab-Jamun"
-      },
-      "Wednesday": 
-      {
-        "Breakfast": "Idli, Coconut Chutney, Veggie Sambar, Coffee",
-        "Lunch": "Rice, Roti, Dal Fry, Chicken Home Style Curry, Paneer Punjabi, Dahi Bhindi, Papad",
-        "Snacks": "Sambar Bara, Onion Cut, Sev, Tea",
-        "Dinner": "Rice, Roti, Dal, Pindi Chhole, Egg Masala, Mix Veg Bhaja, Sirka Onion"
-      },
-      "Thursday": 
-      {
-        "Breakfast": "Bara, Ghuguni, Tea",
-        "Lunch": "Rice, Roti, Dal Fry, Kadhi-Pakoda, Aloo-Tomato Bharta, Fryums, Salad",
-        "Snacks": "Onion-Cabbage Cutlet, Ghuguni, Coffee",
-        "Dinner": "Rice, Roti, Dal Fry, Cauliflower-Matar Aloo Curry, Aloo Jhudanga Bhaja, Frooti"
-      },
-      "Friday": 
-      {
-        "Breakfast": "Uttapam, Chutney, Ghuguni, Coffee",
-        "Lunch": "Rice, Roti, Dal, Palak Paneer, Beans-Aloo Bhaja, Chicken Butter Masala, Salad, Papad",
-        "Snacks": "Veg Chowmin, Tomato Sauce, Tea",
-        "Dinner": "Rice, Roti, Dal, Rajma Masala, Egg Boiled Masala, Seasonal Bhaja,Rasgulla"
-      },
-      "Saturday": 
-      {
-        "Breakfast": "Upma, Ghuguni, Tea",
-        "Lunch": "Rice, Roti, Dal Fry, Fish-Aloo Besara, Mushroom Besara, Cauliflower Bhaja, Fryums",
-        "Snacks": "Samosa Big with Imli Chutney, Coffee",
-        "Dinner": "Rice, Roti, Dal Fry, Chicken-Kadhai, Paneer Kadhai, Cabbage Mattar Masala, Papad"
-      },
-      "Sunday": 
-      {
-        "Breakfast": "Poori, Aloo Dum, Coffee",
-        "Lunch": "Rice, Roti, Dal Fry, Egg Dopyaza, Soyabean Dopyaza, Vegetable Chips, Papad",
-        "Snacks": "Bourbon Biscuit, Tea",
-        "Dinner": "Vegetable Pulao, Roti, Dal Fry, Chicken Korma, Paneer Makhani, Honey Chilli Potato, Ice-Cream"
-      }
-    }
-
-  
+  "Monday": {
+    "Breakfast": "Semlya Upma, Ghuguni, Chutney, Tea",
+    "Lunch": "Rice(2), Roti, Dalma, Aloo Patal Bhaja, Amba Khatta, Papad, Plain Dahi",
+    "Snacks": "Sweet Corn (Onion, Lemon, Black Salt), Green Chutney (Pudina), Coffee",
+    "Dinner": "Rice(2), Dal, Roti, Aloo Chole Curry, Mix Veg Bhaja, Rasagulla"
+  },
+  "Tuesday": {
+    "Breakfast": "Poori(4pc), Bhuta Aloo Curry, Coffee",
+    "Lunch": "Dahi Pakhala(U), Rice(A), Roti, Dal, Fish Masala Fry, Mushroom Masala (Semi Gravy), Aloo Tamato Chokha",
+    "Snacks": "Pani Puri(10), Aloo Chokha (With Onion and Chana), Pudina Pani, Tea",
+    "Dinner": "Rice(2), Roti, Dal, Egg Bhurji, Paneer Bhurji, Bhindi Masala, Kala Jamun/Gulab Jamun"
+  },
+  "Wednesday": {
+    "Breakfast": "Potato Sandwich(4) (Mashed Aloo Severed Separately with Peas Onion and Tomato), Pudina Chutney, Tea",
+    "Lunch": "Rice(2), Roti, Dal Fry, Egg Curry, Bhuta Janhi Curry, Aloo Banana Fries/Bhaja, Buttermilk",
+    "Snacks": "Vada Pav, Masala, Green Chutney, Fried Chilli, Coffee",
+    "Dinner": "Rice(2), Roti, Dal, Chilli Chicken, Chilli Paneer, Aloo Chips, Jhudunga Bhaja"
+  },
+  "Thursday": {
+    "Breakfast": "Idli(4), Sambar, Chutney, Coffee",
+    "Lunch": "Rice(2), Roti, Dal, Mix Besara, Bhindi Aloo Masala, Ambula Rai, Papad",
+    "Snacks": "Dahi Vada(3), Aloo Dum (Onion, Sev Bhujia, Green Chutney), Tea",
+    "Dinner": "Rice(2), Poori(4), Dal, Aloo Chole Masala, Mix Veg Fry, Kheer"
+  },
+  "Friday": {
+    "Breakfast": "Bread(4), Aloo Chop(2), Egg, Banana, Jam/Butter, Tea",
+    "Lunch": "Rice(2), Roti, Dal, Chicken Aloo Kassa, Kadhai Paneer, Fried Brinjal(Circular), Plain Dahi",
+    "Snacks": "Watermelon(4), Black Salt, Coffee",
+    "Dinner": "Rice(2), Roti, Dal, Fish Tawa Fry, Mushroom Masala, Banana Aloo Bhaja, Dahi Salad"
+  },
+  "Saturday": {
+    "Breakfast": "Uttapam(3), Sambar, Chutney, Coffee",
+    "Lunch": "Rice(2), Roti, Dal, Chicken Hyderabadi, Paneer Butter Masala, Mix Bhaja, Dahi Boondi",
+    "Snacks": "Vegetable Chop(8-12), Tomato Sauce, Chilli Sauce, Tea",
+    "Dinner": "Rice(2), Roti, Dal, Egg Tadka, Veg Tadka, Honey Chilli Potato, Salad, Sooji Halwa"
+  },
+  "Sunday": {
+    "Breakfast": "Dahi Vada(3), Aloo Dum (Onion, Sev Bhujia, Green Chutney), Coffee",
+    "Lunch": "Dahi Pakhala(U), Rice(A), Roti, Dal, Mix Veg, Badi Chura, Smashed Aloo With Mixture, Amba Khatta",
+    "Snacks": "Jhal Mudhi / Soya Sticks, Tea",
+    "Dinner": "Veg Pulao, Dal Fry, Chicken Butter Masala, Paneer Matter Masala, Dahi Vada, Fryums, Ice Cream (Chocolate Cone)"
+  }
+}
