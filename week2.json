@@ -1,53 +1,46 @@
 {
-
-    "Monday": 
-    {
-      "Breakfast": "PALAK PURI, ALOO KASSA, COFFEE",
-      "Lunch": "RICE, ROTI, DAL, SAGA MUGA, ALOO BAIGANA BHARTA, SRIRAM PAPAD BIG",
-      "Snacks": "CHAULA BARA WITH ALOO KASA, TEA",
-      "Dinner": "RICE, ROTI, DAL, SOYABIN CURRY, DESI SOLA ONION BHAJI, GULAB JAMUN"
+    "Monday": {
+        "Breakfast": "Idli , Ghuguni, Coconut & Groundnut Chutney, Tea",
+        "Lunch": "Rice, Roti, Dal, Egg Masala/Sagamuga, Aloo Baigana Bharta, Dahi Salad",
+        "Snacks": "Mix Veg Chowmin, Chili and Tomato Sauce, Coffee",
+        "Dinner": "Rice, Roti, Dal, Soyabean Aloo Kasa, Cabbage Matar, Fruit Custard"
     },
-    "Tuesday": 
-    {
-      "Breakfast": "BARA, GHUGUNI, TEA",
-      "Lunch": "RICE, ROTI, DAL, FISH KALIA/PANEER MASALA, DAHI VENDI/DAHI BAIGANA",
-      "Snacks": "PAMPDI CHAT, ONION, SEU, IMUL CHUTNEY, TEA",
-      "Dinner": " DUM BIRIYANI WITH ONE PC ALOO, RAITA, CHICKEN CURRY/ PANEER CURRY, FROOTI"
+    "Tuesday": {
+        "Breakfast": "Chole Bhature , Coffee",
+        "Lunch": "Rice, Roti, Dal, Chicken Aloo Kasa/Navaratna Khruma, Dahi Kadhi, Papad",
+        "Snacks": "Dahi Vada (2 nos), Aludum, Onion and Sev, Tea",
+        "Dinner": "Rice, Roti, Dal, Egg Bhurji/Paneer Bhurji, Aloo Besara Bhaja, Sweet Curd"
     },
-    "Wednesday": 
-    {
-      "Breakfast": "FRUIT BREAD, JAM, ALUCHOP, BANANA/EGG, COFFEE",
-      "Lunch": "RICE, ROTI, DAL, EGG DOPIAZA/ CABBAGE MATTER KASSA, ALOO KARELA CHIPS, SALAD",
-      "Snacks": "MAGGIE WITH VEGGIES, COFFEE",
-      "Dinner": "RICE, ROTI, DAL, ALOO CHICKEN MASALA/ PANEER BHURJI, MIX BHAJA, RASOGOLLA"
+    "Wednesday": {
+        "Breakfast": "Masala Upama, Ghuguni, Coconut & Ground nut Chutney, Tea",
+        "Lunch": "Rice, Roti, Dal, Mustard Fish with Aloo/Mushroom & Green Peas Masala, Aloo Cauliflower Bhaja, Salad",
+        "Snacks": "Paneer Patties  Chili & Tomato Sauce, Coffee",
+        "Dinner": "Hyderabadi Chicken , Dum Biriyani, Raita, Boiled Egg ,Mix Veg Dum Biriyani Paneer Curry Rasgola "
     },
-    "Thursday": 
-    {
-      "Breakfast": "SEMEI UPMA, GHUGUNI, COFFEE",
-      "Lunch": "RICE, ROTI, DAL, ALOO CAULIFLOWER KASSA, SEASONAL BHAJI, AMBULA RAI",
-      "Snacks": "ALOO MATAR CHAT WITH ONION, CUCUMBER, TOMATO, CHUTNEY, TEA",
-      "Dinner": "RICE, ROTI, DAL, VEG/EGG TADKA,VENDI ALOO VAJA, FRUIT CUSTARD"
+    "Thursday": {
+        "Breakfast": "Bada , Aloo Dum, Coconut & Groundnut Chutney, Tea",
+        "Lunch": "Rice, Roti, Dal, Egg Do Piaza/Potal Kurma, Cabbage Matar Bhaja, Papad",
+        "Snacks": "Pav Bhaji , Tea",
+        "Dinner": "Rice, Roti, Dal, Egg Tadka/Paneer Tadka, Finger Chips, Salad"
     },
-    "Friday": 
-    {
-      "Breakfast": "IDLI, GHUGUNI, CHUTNEY, COFFEE",
-      "Lunch": "RICE, ROTI, DAL, FISH ALOO BASAR/CHENNA CURRY, SALAD, SRIRAM PAPAD BIG",
-      "Snacks": "CABBAGE ONION PAKODI, SAUCE, SALT, COFFEE",
-      "Dinner": "RICE, ROTI, DAL, BESAR CHICKEN/ PANEER CHILLY, SEASONAL BHAJI"
+    "Friday": {
+        "Breakfast": "Bread , Omelette /Banana , Tea",
+        "Lunch": "Rice, Roti, Dal, Fish Kalia /Cauli Flower Aloo Kasa, Tomato Chutney, Papad",
+        "Snacks": "Pampdi Chat, Onion, Sev, Dahi, Pudina Chutney, Coffee",
+        "Dinner": "Rice, Roti, Dal, Hyderabadi Chicken/Paneer Butter Masala, Seasonal Bhaja, Malpua"
     },
-    "Saturday": 
-    {
-      "Breakfast": "SANDWICH, TOMATO KETCHUP, ALUCHOP, BANANA/EGG , TEA",
-      "Lunch": "RICE, ROTI, DAL,ALOO VENDI BESARA, ALOO BHHARTA, SALAD",
-      "Snacks": "DAHI BADA, SEV, COFFEE",
-      "Dinner": "RICE, ROTI, DAL, EGG BHURJI/RAJMA,SEASONAL BHAJA, SALAD"
+    "Saturday": {
+        "Breakfast": "Uttapam , Sambar, Coconut & Groundnut Chutney, Coffee",
+        "Lunch": "Rice, Roti, Dal, Egg Allo Curry/Chenna Curry, Cabbage Beans Ghanta, Peas Bhaja, Salad",
+        "Snacks": "Vada Pav , Fried Chilli, Pudina Chutney, Tea",
+        "Dinner": "Rice, Roti, Dal, Chicken 'Home Style'/Mushroom Besar, Chilli Soya, Papad"
     },
-    "Sunday": 
-    {
-      "Breakfast": "DOSA, SAMBAR, CHUTNEY, TEA",
-      "Lunch": "VEG DUM BIRYANI, CHICKEN CURRY/PANEER PEAS MASALA, RAITA, SRIRAM PAPAD BIG",
-      "Snacks": "BURGER WITH ALOO TIKKI, SAUCE, COFFEE",
-      "Dinner": "RICE, ROTI, DAL,  EGG ALOO HOMESTYLE CURRY/ ALOO GOBI KASA,MALPUA"
+    "Sunday": {
+        "Breakfast": "Onion Masala Dosa, Coconut Chutney, Tea",
+        "Lunch": "Rice,Roti,Dal,Mundhi GHanta/Paneer Ghanta,Karela Chips,Salasd ",
+        "Snacks": "Aloo samosa,Pudina Chutney Coffee",
+        "Dinner": "Mushroom-Pulao,Puri,Dalfry,Dahibada,Chicken Kasa/Paneer,Matar,Aloo,Curry,Papad,Ice Cream "
     }
-}
+ }
 
+  

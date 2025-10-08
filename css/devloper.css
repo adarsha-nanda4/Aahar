@@ -4,6 +4,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+}
 #devloperpage{
     width: 100%;
     gap: 10px;
